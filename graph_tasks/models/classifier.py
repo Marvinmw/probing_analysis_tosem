@@ -34,7 +34,7 @@ class EdgeModel(nn.Module):
     #     for name, param in self.encoder.named_parameters():
     #         param.requires_grad = False  
         
-    def forward(self, inputs_ids_1,attn_mask_1, span_1, span_2, labels=None, layer=-1,): 
+    def forward(self, inputs_ids_1,attn_mask_1, span_1,ex1_span_mask, span_2,ex2_span_mask, labels=None, layer=-1,): 
        
         # pass the inputs to the model
         # https://huggingface.co/docs/transformers/main/en/main_classes/output
@@ -42,10 +42,10 @@ class EdgeModel(nn.Module):
         mask = inputs_ids_1.ne(self.config.pad_token_id) # mask.unsqueeze(1) * mask.unsqueeze(2)
         outputs = self.encoder(inputs_ids_1, attention_mask=attn_mask_1, return_dict=True)
         emb_1 = outputs.hidden_states[layer]
-        seq_1 = self.selfattetionpool( emb_1, span_1  )
+        seq_1 = self.selfattetionpool( emb_1, span_1 ,span_indices_mask=ex1_span_mask )
         seq_1 = torch.sum(seq_1, 1)
       #  logger.info(f"emb_1 shape {emb_1.shape}, seq_1 shape {seq_1.shape}")
-        seq_2 = self.selfattetionpool( emb_1, span_2  )
+        seq_2 = self.selfattetionpool( emb_1, span_2 ,span_indices_mask=ex2_span_mask )
         seq_2 = torch.sum(seq_2, 1)
         rep = torch.cat( (seq_1,  seq_2 ), dim=1 )
         rep = self.dropout(rep)
@@ -74,13 +74,13 @@ class FasterEdgeModel(nn.Module):
 
 
         
-    def forward(self, input_features, span_1, span_mask1, span_2, span_mask2,labels=None ): 
+    def forward(self, input_features, span_1,ex1_span_mask, span_2,ex2_span_mask, labels=None ): 
         # pass the inputs to the model
         # https://huggingface.co/docs/transformers/main/en/main_classes/output
 
-        seq_1 = self.selfattetionpool( input_features, span_1 , span_indices_mask=span_mask1 )
+        seq_1 = self.selfattetionpool( input_features, span_1, span_indices_mask = ex1_span_mask  )#.squeeze(1)
         seq_1 = torch.sum(seq_1, 1)
-        seq_2 = self.selfattetionpool( input_features, span_2 , span_indices_mask=span_mask2 )
+        seq_2 = self.selfattetionpool( input_features, span_2, span_indices_mask =  ex2_span_mask )#.squeeze(1)
         seq_2 = torch.sum(seq_2, 1)
         rep = torch.cat( (seq_1,  seq_2 ), dim=1 )
         rep = self.dropout(rep)
@@ -126,5 +126,32 @@ class InferenceModel(nn.Module):
         return outputs
 
 
+class InferenceCodeT5Model(nn.Module):   
+    def __init__(self, encoder, tokenizer, config ,args):
+        super(InferenceCodeT5Model, self).__init__()
+        self.encoder = encoder
+        self.config=config
+        self.args=args
+        self.tokenizer = tokenizer
+        
+    def forward(self, batch_data):
+        # pass the inputs to the model
+        # https://huggingface.co/docs/transformers/main/en/main_classes/output
+       
+        (source_ids ) = batch_data
+        encoder_hidden_states = self.get_t5_vec(source_ids)
+        return encoder_hidden_states #outputs.hidden_states
+    
 
+    def get_t5_vec(self, source_ids):
+        attention_mask = source_ids.ne(self.tokenizer.pad_token_id)
+        outputs = self.encoder(input_ids=source_ids, attention_mask=attention_mask,
+                            labels=source_ids, decoder_attention_mask=attention_mask, output_hidden_states=True, return_dict=True)
+        encoder_hidden_states = outputs['encoder_hidden_states']
+        # eos_mask = source_ids.eq(self.config.eos_token_id)
 
+        # if len(torch.unique(eos_mask.sum(1))) > 1:
+        #     raise ValueError("All examples must have the same number of <eos> tokens.")
+        # vec = hidden_states[eos_mask, :].view(hidden_states.size(0), -1,
+        #                                     hidden_states.size(-1))[:, -1, :]
+        return encoder_hidden_states
