@@ -1,3 +1,4 @@
+from json import encoder
 import argparse
 from global_logger import Log
 import torch
@@ -523,12 +524,10 @@ if __name__ == "__main__":
         dataset = GraphCodeBERTDataset(
             args, logger, tokenizer, source_code=source_code_file
         )
-    elif args.model_name == "unixcoder":
+    else:
         dataset = UnixcerDataset(
             args, logger, tokenizer, source_code=source_code_file
         )
-    else:
-        assert False, f"{args.model_name}"
 
     dataset.print_example(tokenizer)
     logger.info("Finishing loading Dataset")

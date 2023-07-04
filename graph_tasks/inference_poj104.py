@@ -1,3 +1,4 @@
+from json import encoder
 import argparse
 from global_logger import Log
 import torch
@@ -327,7 +328,7 @@ if __name__ == "__main__":
             source_code=source_code,
             programlist=programlist
         )
-    elif args.model_name == "unixcoder":
+    else:
         dataset = UnixDataset(
             args,
             logger,
@@ -335,8 +336,6 @@ if __name__ == "__main__":
             source_code=source_code,
             programlist=programlist
         )
-    else:
-        assert False,  f"{args.model_name}"
 
     dataset.print_example(tokenizer)
     logger.info("Finishing loading Dataset")
