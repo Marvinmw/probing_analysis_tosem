@@ -1,1986 +1,0 @@
-[33mdevice: cuda, n_gpu: 1[0m
-[32mLoad Dataset[0m
-[32mNum of Class 233[0m
-Token indices sequence length is longer than the specified maximum sequence length for this model (550 > 512). Running this sequence through the model will result in indexing errors
-[32mFinishing loading Dataset[0m
-[32mpretrained the encoder[0m
-Some weights of the model checkpoint at microsoft/graphcodebert-base were not used when initializing RobertaModel: ['lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.decoder.bias', 'lm_head.bias', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight']
-- This IS expected if you are initializing RobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
-- This IS NOT expected if you are initializing RobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
-Some weights of RobertaModel were not initialized from the model checkpoint at microsoft/graphcodebert-base and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
-You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
-[32mProbimg Model Parameters 179177[0m
-[32mTraining/evaluation parameters Namespace(adam_epsilon=1e-08, config_name='microsoft/graphcodebert-base', data_folder='../datasets/java250/postag/', dataset='postag', debug=False, device=device(type='cuda'), do_eval=True, do_random=False, do_test=True, do_train=True, epochs=5, eval_batch_size=32, evaluate_during_training=False, gradient_accumulation_steps=1, graph_type='ast', layer=6, learning_rate=0.001, max_code_length=512, max_grad_norm=1.0, max_steps=-1, model_name='graphcodebert', model_name_or_path='microsoft/graphcodebert-base', n_gpu=1, output_dir='./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6', posratio=0.5, seed=768, token_config='microsoft/graphcodebert-base', train_batch_size=64, warmup_steps=0, weight_decay=0.0)[0m
-[32msave steps 1[0m
-[32m***** Running training *****[0m
-[32m  Num examples = 880[0m
-[32m  Num Epochs = 5[0m
-[32m  Instantaneous batch size per GPU = 64[0m
-[32m  Total train batch size = 64[0m
-[32m  Gradient Accumulation steps = 1[0m
-[32m  Total optimization steps = 70[0m
-  0%|          | 0/14 [00:00<?, ?it/s]epoch 0 loss 5.55065:   0%|          | 0/14 [00:01<?, ?it/s][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.71it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.72it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.73it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.73it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.73it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.73it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.73it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.73it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.73it/s][A100%|██████████| 10/10 [00:03<00:00,  2.97it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.0008[0m
-[32m  eval_f1 = 0.0002[0m
-[32m  eval_mcc = -0.0015[0m
-[32m  eval_precision = 0.0017[0m
-[32m  eval_recall = 0.0002[0m
-[32m  ********************[0m
-[32m  Best f1:0.0002[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-
-epoch 0 loss 5.55065:   7%|▋         | 1/14 [00:05<01:12,  5.60s/it]epoch 0 loss 5.54916:   7%|▋         | 1/14 [00:06<01:12,  5.60s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.73it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.73it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.73it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.73it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.73it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.73it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.73it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.73it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.73it/s][A100%|██████████| 10/10 [00:03<00:00,  2.97it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.001[0m
-[32m  eval_f1 = 0.0003[0m
-[32m  eval_mcc = -0.0016[0m
-[32m  eval_precision = 0.0041[0m
-[32m  eval_recall = 0.0002[0m
-[32m  ********************[0m
-[32m  Best f1:0.0003[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-
-epoch 0 loss 5.54916:  14%|█▍        | 2/14 [00:10<01:04,  5.36s/it]epoch 0 loss 5.54614:  14%|█▍        | 2/14 [00:11<01:04,  5.36s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.73it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.73it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.73it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.73it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.73it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.73it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.73it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.73it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.73it/s][A100%|██████████| 10/10 [00:03<00:00,  2.97it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.0011[0m
-[32m  eval_f1 = 0.0003[0m
-[32m  eval_mcc = -0.0018[0m
-[32m  eval_precision = 0.004[0m
-[32m  eval_recall = 0.0002[0m
-[32m  ********************[0m
-[32m  Best f1:0.0003[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-
-epoch 0 loss 5.54614:  21%|██▏       | 3/14 [00:15<00:58,  5.28s/it]epoch 0 loss 5.53981:  21%|██▏       | 3/14 [00:16<00:58,  5.28s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.68it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.71it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.72it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.72it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.73it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.73it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.73it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.73it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.73it/s][A100%|██████████| 10/10 [00:03<00:00,  2.97it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.0019[0m
-[32m  eval_f1 = 0.0006[0m
-[32m  eval_mcc = -0.0018[0m
-[32m  eval_precision = 0.005[0m
-[32m  eval_recall = 0.0004[0m
-[32m  ********************[0m
-[32m  Best f1:0.0006[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-
-epoch 0 loss 5.53981:  29%|██▊       | 4/14 [00:21<00:53,  5.38s/it]epoch 0 loss 5.52805:  29%|██▊       | 4/14 [00:22<00:53,  5.38s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.74it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.74it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.73it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.73it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.73it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.73it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.73it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.73it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.73it/s][A100%|██████████| 10/10 [00:03<00:00,  2.97it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.0037[0m
-[32m  eval_f1 = 0.0012[0m
-[32m  eval_mcc = -0.0012[0m
-[32m  eval_precision = 0.0059[0m
-[32m  eval_recall = 0.0009[0m
-[32m  ********************[0m
-[32m  Best f1:0.0012[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-
-epoch 0 loss 5.52805:  36%|███▌      | 5/14 [00:27<00:49,  5.45s/it]epoch 0 loss 5.50963:  36%|███▌      | 5/14 [00:27<00:49,  5.45s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.71it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.73it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.73it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.73it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.73it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.73it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.73it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.73it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.73it/s][A100%|██████████| 10/10 [00:03<00:00,  2.97it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.0105[0m
-[32m  eval_f1 = 0.0047[0m
-[32m  eval_mcc = 0.0037[0m
-[32m  eval_precision = 0.0097[0m
-[32m  eval_recall = 0.0041[0m
-[32m  ********************[0m
-[32m  Best f1:0.0047[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.0037[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 0 loss 5.50963:  43%|████▎     | 6/14 [00:32<00:44,  5.60s/it]epoch 0 loss 5.48739:  43%|████▎     | 6/14 [00:33<00:44,  5.60s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.70it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.72it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.72it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.73it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.73it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.73it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.73it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.73it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.73it/s][A100%|██████████| 10/10 [00:03<00:00,  2.97it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.024[0m
-[32m  eval_f1 = 0.008[0m
-[32m  eval_mcc = 0.0141[0m
-[32m  eval_precision = 0.0132[0m
-[32m  eval_recall = 0.0085[0m
-[32m  ********************[0m
-[32m  Best f1:0.008[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.0141[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 0 loss 5.48739:  50%|█████     | 7/14 [00:39<00:42,  6.05s/it]epoch 0 loss 5.46075:  50%|█████     | 7/14 [00:40<00:42,  6.05s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.74it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.74it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.74it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.74it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.74it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.74it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.74it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.74it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.73it/s][A100%|██████████| 10/10 [00:03<00:00,  2.98it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.0459[0m
-[32m  eval_f1 = 0.0122[0m
-[32m  eval_mcc = 0.0317[0m
-[32m  eval_precision = 0.0174[0m
-[32m  eval_recall = 0.0138[0m
-[32m  ********************[0m
-[32m  Best f1:0.0122[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.0317[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 0 loss 5.46075:  57%|█████▋    | 8/14 [00:46<00:38,  6.34s/it]epoch 0 loss 5.43014:  57%|█████▋    | 8/14 [00:47<00:38,  6.34s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.74it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.74it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.74it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.74it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.74it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.74it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.74it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.74it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.74it/s][A100%|██████████| 10/10 [00:03<00:00,  2.98it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.0792[0m
-[32m  eval_f1 = 0.0175[0m
-[32m  eval_mcc = 0.0605[0m
-[32m  eval_precision = 0.0248[0m
-[32m  eval_recall = 0.0218[0m
-[32m  ********************[0m
-[32m  Best f1:0.0175[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.0605[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 0 loss 5.43014:  64%|██████▍   | 9/14 [00:53<00:32,  6.52s/it]epoch 0 loss 5.3949:  64%|██████▍   | 9/14 [00:54<00:32,  6.52s/it] [32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.74it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.74it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.74it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.74it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.74it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.74it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.74it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.74it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.74it/s][A100%|██████████| 10/10 [00:03<00:00,  2.98it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.1313[0m
-[32m  eval_f1 = 0.0327[0m
-[32m  eval_mcc = 0.109[0m
-[32m  eval_precision = 0.0421[0m
-[32m  eval_recall = 0.041[0m
-[32m  ********************[0m
-[32m  Best f1:0.0327[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.109[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 0 loss 5.3949:  71%|███████▏  | 10/14 [01:00<00:26,  6.64s/it]epoch 0 loss 5.35554:  71%|███████▏  | 10/14 [01:01<00:26,  6.64s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.74it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.74it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.74it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.74it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.74it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.74it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.74it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.74it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.74it/s][A100%|██████████| 10/10 [00:03<00:00,  2.98it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.1958[0m
-[32m  eval_f1 = 0.0511[0m
-[32m  eval_mcc = 0.1719[0m
-[32m  eval_precision = 0.0774[0m
-[32m  eval_recall = 0.0637[0m
-[32m  ********************[0m
-[32m  Best f1:0.0511[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.1719[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 0 loss 5.35554:  79%|███████▊  | 11/14 [01:11<00:23,  7.98s/it]epoch 0 loss 5.31196:  79%|███████▊  | 11/14 [01:12<00:23,  7.98s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.74it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.74it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.74it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.74it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.74it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.74it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.74it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.74it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.74it/s][A100%|██████████| 10/10 [00:03<00:00,  2.98it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.2674[0m
-[32m  eval_f1 = 0.0766[0m
-[32m  eval_mcc = 0.2439[0m
-[32m  eval_precision = 0.1107[0m
-[32m  eval_recall = 0.0911[0m
-[32m  ********************[0m
-[32m  Best f1:0.0766[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.2439[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 0 loss 5.31196:  86%|████████▌ | 12/14 [01:20<00:16,  8.33s/it]epoch 0 loss 5.26448:  86%|████████▌ | 12/14 [01:21<00:16,  8.33s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.75it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.74it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.74it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.74it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.74it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.74it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.74it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.74it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.74it/s][A100%|██████████| 10/10 [00:03<00:00,  2.98it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.3373[0m
-[32m  eval_f1 = 0.1039[0m
-[32m  eval_mcc = 0.3153[0m
-[32m  eval_precision = 0.1483[0m
-[32m  eval_recall = 0.119[0m
-[32m  ********************[0m
-[32m  Best f1:0.1039[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.3153[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 0 loss 5.26448:  93%|█████████▎| 13/14 [01:31<00:08,  8.98s/it]epoch 0 loss 5.21404:  93%|█████████▎| 13/14 [01:31<00:08,  8.98s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.74it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.74it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.74it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.75it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.75it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.75it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.75it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.75it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.75it/s][A100%|██████████| 10/10 [00:03<00:00,  2.99it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.4066[0m
-[32m  eval_f1 = 0.1297[0m
-[32m  eval_mcc = 0.3865[0m
-[32m  eval_precision = 0.1799[0m
-[32m  eval_recall = 0.1436[0m
-[32m  ********************[0m
-[32m  Best f1:0.1297[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.3865[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 0 loss 5.21404: 100%|██████████| 14/14 [01:41<00:00,  9.31s/it]epoch 0 loss 5.21404: 100%|██████████| 14/14 [01:41<00:00,  7.25s/it]
-  0%|          | 0/14 [00:00<?, ?it/s]epoch 1 loss 4.3931:   0%|          | 0/14 [00:00<?, ?it/s][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.75it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.75it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.74it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.75it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.75it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.75it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.75it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.75it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.75it/s][A100%|██████████| 10/10 [00:03<00:00,  2.99it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.4638[0m
-[32m  eval_f1 = 0.1553[0m
-[32m  eval_mcc = 0.4451[0m
-[32m  eval_precision = 0.2104[0m
-[32m  eval_recall = 0.1669[0m
-[32m  ********************[0m
-[32m  Best f1:0.1553[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.4451[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 1 loss 4.3931:   7%|▋         | 1/14 [00:09<01:57,  9.04s/it]epoch 1 loss 4.32399:   7%|▋         | 1/14 [00:09<01:57,  9.04s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.75it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.75it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.75it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.75it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.75it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.75it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.75it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.75it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.75it/s][A100%|██████████| 10/10 [00:03<00:00,  2.99it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.5128[0m
-[32m  eval_f1 = 0.1821[0m
-[32m  eval_mcc = 0.4949[0m
-[32m  eval_precision = 0.2501[0m
-[32m  eval_recall = 0.1922[0m
-[32m  ********************[0m
-[32m  Best f1:0.1821[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.4949[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 1 loss 4.32399:  14%|█▍        | 2/14 [00:16<01:36,  8.03s/it]epoch 1 loss 4.2362:  14%|█▍        | 2/14 [00:17<01:36,  8.03s/it] [32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.75it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.75it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.75it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.75it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.75it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.75it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.75it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.75it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.74it/s][A100%|██████████| 10/10 [00:03<00:00,  2.99it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.5562[0m
-[32m  eval_f1 = 0.2088[0m
-[32m  eval_mcc = 0.5391[0m
-[32m  eval_precision = 0.2815[0m
-[32m  eval_recall = 0.2168[0m
-[32m  ********************[0m
-[32m  Best f1:0.2088[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.5391[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 1 loss 4.2362:  21%|██▏       | 3/14 [00:23<01:24,  7.69s/it]epoch 1 loss 4.15143:  21%|██▏       | 3/14 [00:24<01:24,  7.69s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.75it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.74it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.74it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.75it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.75it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.75it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.75it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.74it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.74it/s][A100%|██████████| 10/10 [00:03<00:00,  2.99it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.5916[0m
-[32m  eval_f1 = 0.2295[0m
-[32m  eval_mcc = 0.5752[0m
-[32m  eval_precision = 0.3031[0m
-[32m  eval_recall = 0.2365[0m
-[32m  ********************[0m
-[32m  Best f1:0.2295[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.5752[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 1 loss 4.15143:  29%|██▊       | 4/14 [00:33<01:26,  8.66s/it]epoch 1 loss 4.07523:  29%|██▊       | 4/14 [00:34<01:26,  8.66s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.75it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.75it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.75it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.74it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.74it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.75it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.75it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.75it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.75it/s][A100%|██████████| 10/10 [00:03<00:00,  2.99it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.621[0m
-[32m  eval_f1 = 0.2448[0m
-[32m  eval_mcc = 0.6052[0m
-[32m  eval_precision = 0.3165[0m
-[32m  eval_recall = 0.2511[0m
-[32m  ********************[0m
-[32m  Best f1:0.2448[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.6052[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 1 loss 4.07523:  36%|███▌      | 5/14 [00:42<01:16,  8.53s/it]epoch 1 loss 4.00137:  36%|███▌      | 5/14 [00:42<01:16,  8.53s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.76it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.75it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.75it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.75it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.75it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.75it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.75it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.75it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.75it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.6461[0m
-[32m  eval_f1 = 0.255[0m
-[32m  eval_mcc = 0.6308[0m
-[32m  eval_precision = 0.3211[0m
-[32m  eval_recall = 0.2604[0m
-[32m  ********************[0m
-[32m  Best f1:0.255[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.6308[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 1 loss 4.00137:  43%|████▎     | 6/14 [00:52<01:12,  9.07s/it]epoch 1 loss 3.92066:  43%|████▎     | 6/14 [00:53<01:12,  9.07s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.75it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.76it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.75it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.75it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.75it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.75it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.75it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.75it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.75it/s][A100%|██████████| 10/10 [00:03<00:00,  2.99it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.669[0m
-[32m  eval_f1 = 0.2652[0m
-[32m  eval_mcc = 0.6542[0m
-[32m  eval_precision = 0.332[0m
-[32m  eval_recall = 0.2689[0m
-[32m  ********************[0m
-[32m  Best f1:0.2652[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.6542[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 1 loss 3.92066:  50%|█████     | 7/14 [01:00<01:01,  8.73s/it]epoch 1 loss 3.84267:  50%|█████     | 7/14 [01:01<01:01,  8.73s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.75it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.75it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.75it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.75it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.75it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.75it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.75it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.75it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.75it/s][A100%|██████████| 10/10 [00:03<00:00,  2.99it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.687[0m
-[32m  eval_f1 = 0.2718[0m
-[32m  eval_mcc = 0.6726[0m
-[32m  eval_precision = 0.3534[0m
-[32m  eval_recall = 0.2744[0m
-[32m  ********************[0m
-[32m  Best f1:0.2718[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.6726[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 1 loss 3.84267:  57%|█████▋    | 8/14 [01:10<00:56,  9.37s/it]epoch 1 loss 3.76791:  57%|█████▋    | 8/14 [01:11<00:56,  9.37s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.76it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.76it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.76it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.76it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.76it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.75it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.75it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.75it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.75it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.7059[0m
-[32m  eval_f1 = 0.2821[0m
-[32m  eval_mcc = 0.6921[0m
-[32m  eval_precision = 0.3614[0m
-[32m  eval_recall = 0.2836[0m
-[32m  ********************[0m
-[32m  Best f1:0.2821[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.6921[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 1 loss 3.76791:  64%|██████▍   | 9/14 [01:19<00:45,  9.09s/it]epoch 1 loss 3.69472:  64%|██████▍   | 9/14 [01:20<00:45,  9.09s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.76it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.76it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.76it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.76it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.75it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.75it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.75it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.75it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.75it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.7209[0m
-[32m  eval_f1 = 0.2873[0m
-[32m  eval_mcc = 0.7075[0m
-[32m  eval_precision = 0.3615[0m
-[32m  eval_recall = 0.2877[0m
-[32m  ********************[0m
-[32m  Best f1:0.2873[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.7075[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 1 loss 3.69472:  71%|███████▏  | 10/14 [01:29<00:37,  9.43s/it]epoch 1 loss 3.62865:  71%|███████▏  | 10/14 [01:30<00:37,  9.43s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.76it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.76it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.76it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.76it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.76it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.76it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.76it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.75it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.75it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.7342[0m
-[32m  eval_f1 = 0.2932[0m
-[32m  eval_mcc = 0.7211[0m
-[32m  eval_precision = 0.366[0m
-[32m  eval_recall = 0.2915[0m
-[32m  ********************[0m
-[32m  Best f1:0.2932[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.7211[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 1 loss 3.62865:  79%|███████▊  | 11/14 [01:39<00:28,  9.45s/it]epoch 1 loss 3.5678:  79%|███████▊  | 11/14 [01:39<00:28,  9.45s/it] [32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.76it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.76it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.76it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.76it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.76it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.76it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.75it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.75it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.75it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.746[0m
-[32m  eval_f1 = 0.2978[0m
-[32m  eval_mcc = 0.7332[0m
-[32m  eval_precision = 0.3697[0m
-[32m  eval_recall = 0.2944[0m
-[32m  ********************[0m
-[32m  Best f1:0.2978[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.7332[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 1 loss 3.5678:  86%|████████▌ | 12/14 [01:49<00:19,  9.69s/it]epoch 1 loss 3.50929:  86%|████████▌ | 12/14 [01:50<00:19,  9.69s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.76it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.76it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.76it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.76it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.76it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.76it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.76it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.75it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.75it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.7557[0m
-[32m  eval_f1 = 0.3035[0m
-[32m  eval_mcc = 0.7432[0m
-[32m  eval_precision = 0.3722[0m
-[32m  eval_recall = 0.2983[0m
-[32m  ********************[0m
-[32m  Best f1:0.3035[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.7432[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 1 loss 3.50929:  93%|█████████▎| 13/14 [01:57<00:09,  9.32s/it]epoch 1 loss 3.44861:  93%|█████████▎| 13/14 [01:58<00:09,  9.32s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.76it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.76it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.76it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.76it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.76it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.76it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.76it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.75it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.75it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.7632[0m
-[32m  eval_f1 = 0.3071[0m
-[32m  eval_mcc = 0.7509[0m
-[32m  eval_precision = 0.3747[0m
-[32m  eval_recall = 0.3011[0m
-[32m  ********************[0m
-[32m  Best f1:0.3071[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.7509[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 1 loss 3.44861: 100%|██████████| 14/14 [02:04<00:00,  8.49s/it]epoch 1 loss 3.44861: 100%|██████████| 14/14 [02:04<00:00,  8.89s/it]
-  0%|          | 0/14 [00:00<?, ?it/s]epoch 2 loss 2.56464:   0%|          | 0/14 [00:00<?, ?it/s][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.75it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.75it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.75it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.75it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.75it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.75it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.75it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.75it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.75it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.7695[0m
-[32m  eval_f1 = 0.3121[0m
-[32m  eval_mcc = 0.7575[0m
-[32m  eval_precision = 0.3771[0m
-[32m  eval_recall = 0.3051[0m
-[32m  ********************[0m
-[32m  Best f1:0.3121[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.7575[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 2 loss 2.56464:   7%|▋         | 1/14 [00:06<01:28,  6.83s/it]epoch 2 loss 2.54737:   7%|▋         | 1/14 [00:07<01:28,  6.83s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.76it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.75it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.75it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.75it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.75it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.75it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.75it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.75it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.75it/s][A100%|██████████| 10/10 [00:03<00:00,  2.99it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.775[0m
-[32m  eval_f1 = 0.3154[0m
-[32m  eval_mcc = 0.7633[0m
-[32m  eval_precision = 0.3806[0m
-[32m  eval_recall = 0.3076[0m
-[32m  ********************[0m
-[32m  Best f1:0.3154[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.7633[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 2 loss 2.54737:  14%|█▍        | 2/14 [00:13<01:22,  6.85s/it]epoch 2 loss 2.49827:  14%|█▍        | 2/14 [00:14<01:22,  6.85s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.75it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.75it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.75it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.75it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.75it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.75it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.75it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.75it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.75it/s][A100%|██████████| 10/10 [00:03<00:00,  2.99it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.7797[0m
-[32m  eval_f1 = 0.3184[0m
-[32m  eval_mcc = 0.768[0m
-[32m  eval_precision = 0.3824[0m
-[32m  eval_recall = 0.3097[0m
-[32m  ********************[0m
-[32m  Best f1:0.3184[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.768[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 2 loss 2.49827:  21%|██▏       | 3/14 [00:25<01:37,  8.90s/it]epoch 2 loss 2.46998:  21%|██▏       | 3/14 [00:25<01:37,  8.90s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.76it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.76it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.76it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.76it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.76it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.76it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.75it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.75it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.75it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.7838[0m
-[32m  eval_f1 = 0.3217[0m
-[32m  eval_mcc = 0.7724[0m
-[32m  eval_precision = 0.3841[0m
-[32m  eval_recall = 0.3126[0m
-[32m  ********************[0m
-[32m  Best f1:0.3217[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.7724[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 2 loss 2.46998:  29%|██▊       | 4/14 [00:35<01:34,  9.43s/it]epoch 2 loss 2.41104:  29%|██▊       | 4/14 [00:36<01:34,  9.43s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.76it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.76it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.76it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.76it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.75it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.76it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.76it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.75it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.75it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.7871[0m
-[32m  eval_f1 = 0.323[0m
-[32m  eval_mcc = 0.7758[0m
-[32m  eval_precision = 0.3835[0m
-[32m  eval_recall = 0.3134[0m
-[32m  ********************[0m
-[32m  Best f1:0.323[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.7758[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 2 loss 2.41104:  36%|███▌      | 5/14 [00:47<01:33, 10.38s/it]epoch 2 loss 2.36043:  36%|███▌      | 5/14 [00:48<01:33, 10.38s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.76it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.76it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.76it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.76it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.76it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.76it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.76it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.76it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.76it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.7899[0m
-[32m  eval_f1 = 0.3251[0m
-[32m  eval_mcc = 0.7788[0m
-[32m  eval_precision = 0.3845[0m
-[32m  eval_recall = 0.3154[0m
-[32m  ********************[0m
-[32m  Best f1:0.3251[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.7788[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 2 loss 2.36043:  43%|████▎     | 6/14 [00:57<01:23, 10.44s/it]epoch 2 loss 2.32218:  43%|████▎     | 6/14 [00:58<01:23, 10.44s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.72it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.74it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.75it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.75it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.76it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.76it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.76it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.75it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.75it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.7922[0m
-[32m  eval_f1 = 0.3266[0m
-[32m  eval_mcc = 0.7811[0m
-[32m  eval_precision = 0.3853[0m
-[32m  eval_recall = 0.3167[0m
-[32m  ********************[0m
-[32m  Best f1:0.3266[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.7811[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 2 loss 2.32218:  50%|█████     | 7/14 [01:08<01:13, 10.54s/it]epoch 2 loss 2.29223:  50%|█████     | 7/14 [01:09<01:13, 10.54s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.72it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.74it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.75it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.75it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.75it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.75it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.75it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.76it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.75it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.7949[0m
-[32m  eval_f1 = 0.3285[0m
-[32m  eval_mcc = 0.7839[0m
-[32m  eval_precision = 0.3866[0m
-[32m  eval_recall = 0.3183[0m
-[32m  ********************[0m
-[32m  Best f1:0.3285[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.7839[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 2 loss 2.29223:  57%|█████▋    | 8/14 [01:18<01:02, 10.41s/it]epoch 2 loss 2.2496:  57%|█████▋    | 8/14 [01:19<01:02, 10.41s/it] [32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.73it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.75it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.75it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.75it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.75it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.76it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.76it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.75it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.75it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.7975[0m
-[32m  eval_f1 = 0.3303[0m
-[32m  eval_mcc = 0.7867[0m
-[32m  eval_precision = 0.3961[0m
-[32m  eval_recall = 0.3197[0m
-[32m  ********************[0m
-[32m  Best f1:0.3303[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.7867[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 2 loss 2.2496:  64%|██████▍   | 9/14 [01:29<00:52, 10.49s/it]epoch 2 loss 2.21219:  64%|██████▍   | 9/14 [01:30<00:52, 10.49s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.76it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.76it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.76it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.76it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.76it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.76it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.76it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.76it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.76it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.8017[0m
-[32m  eval_f1 = 0.3329[0m
-[32m  eval_mcc = 0.791[0m
-[32m  eval_precision = 0.3977[0m
-[32m  eval_recall = 0.321[0m
-[32m  ********************[0m
-[32m  Best f1:0.3329[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.791[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 2 loss 2.21219:  71%|███████▏  | 10/14 [01:37<00:39,  9.89s/it]epoch 2 loss 2.17808:  71%|███████▏  | 10/14 [01:38<00:39,  9.89s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.76it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.76it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.76it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.76it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.76it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.76it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.76it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.76it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.76it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.8061[0m
-[32m  eval_f1 = 0.3359[0m
-[32m  eval_mcc = 0.7957[0m
-[32m  eval_precision = 0.4[0m
-[32m  eval_recall = 0.3229[0m
-[32m  ********************[0m
-[32m  Best f1:0.3359[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.7957[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 2 loss 2.17808:  79%|███████▊  | 11/14 [01:48<00:30, 10.09s/it]epoch 2 loss 2.14603:  79%|███████▊  | 11/14 [01:49<00:30, 10.09s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.76it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.76it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.76it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.76it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.76it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.76it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.76it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.76it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.75it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.8087[0m
-[32m  eval_f1 = 0.338[0m
-[32m  eval_mcc = 0.7984[0m
-[32m  eval_precision = 0.4007[0m
-[32m  eval_recall = 0.3244[0m
-[32m  ********************[0m
-[32m  Best f1:0.338[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.7984[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 2 loss 2.14603:  86%|████████▌ | 12/14 [01:57<00:19,  9.75s/it]epoch 2 loss 2.12878:  86%|████████▌ | 12/14 [01:58<00:19,  9.75s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.76it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.76it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.76it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.76it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.76it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.76it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.76it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.76it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.76it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.8108[0m
-[32m  eval_f1 = 0.3402[0m
-[32m  eval_mcc = 0.8006[0m
-[32m  eval_precision = 0.4021[0m
-[32m  eval_recall = 0.3261[0m
-[32m  ********************[0m
-[32m  Best f1:0.3402[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.8006[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 2 loss 2.12878:  93%|█████████▎| 13/14 [02:07<00:09,  9.89s/it]epoch 2 loss 2.0979:  93%|█████████▎| 13/14 [02:08<00:09,  9.89s/it] [32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.76it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.76it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.76it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.76it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.76it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.76it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.76it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.76it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.75it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.8127[0m
-[32m  eval_f1 = 0.3435[0m
-[32m  eval_mcc = 0.8025[0m
-[32m  eval_precision = 0.4113[0m
-[32m  eval_recall = 0.3293[0m
-[32m  ********************[0m
-[32m  Best f1:0.3435[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.8025[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 2 loss 2.0979: 100%|██████████| 14/14 [02:16<00:00,  9.42s/it]epoch 2 loss 2.0979: 100%|██████████| 14/14 [02:16<00:00,  9.72s/it]
-  0%|          | 0/14 [00:00<?, ?it/s]epoch 3 loss 1.70124:   0%|          | 0/14 [00:00<?, ?it/s][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.76it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.76it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.76it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.75it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.75it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.76it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.76it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.76it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.75it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.8143[0m
-[32m  eval_f1 = 0.3452[0m
-[32m  eval_mcc = 0.8042[0m
-[32m  eval_precision = 0.412[0m
-[32m  eval_recall = 0.3306[0m
-[32m  ********************[0m
-[32m  Best f1:0.3452[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.8042[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 3 loss 1.70124:   7%|▋         | 1/14 [00:10<02:14, 10.32s/it]epoch 3 loss 1.65492:   7%|▋         | 1/14 [00:11<02:14, 10.32s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.75it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.76it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.76it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.76it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.76it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.76it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.76it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.76it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.75it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.8153[0m
-[32m  eval_f1 = 0.3471[0m
-[32m  eval_mcc = 0.8053[0m
-[32m  eval_precision = 0.412[0m
-[32m  eval_recall = 0.3321[0m
-[32m  ********************[0m
-[32m  Best f1:0.3471[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.8053[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 3 loss 1.65492:  14%|█▍        | 2/14 [00:18<01:51,  9.30s/it]epoch 3 loss 1.62648:  14%|█▍        | 2/14 [00:19<01:51,  9.30s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.77it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.77it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.76it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.76it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.76it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.76it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.76it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.76it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.75it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.8168[0m
-[32m  eval_f1 = 0.3499[0m
-[32m  eval_mcc = 0.8069[0m
-[32m  eval_precision = 0.4129[0m
-[32m  eval_recall = 0.3349[0m
-[32m  ********************[0m
-[32m  Best f1:0.3499[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.8069[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 3 loss 1.62648:  21%|██▏       | 3/14 [00:29<01:48,  9.84s/it]epoch 3 loss 1.63808:  21%|██▏       | 3/14 [00:30<01:48,  9.84s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.76it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.76it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.76it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.76it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.76it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.76it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.76it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.76it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.75it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.8177[0m
-[32m  eval_f1 = 0.3508[0m
-[32m  eval_mcc = 0.8078[0m
-[32m  eval_precision = 0.4134[0m
-[32m  eval_recall = 0.3356[0m
-[32m  ********************[0m
-[32m  Best f1:0.3508[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.8078[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 3 loss 1.63808:  29%|██▊       | 4/14 [00:38<01:34,  9.42s/it]epoch 3 loss 1.62671:  29%|██▊       | 4/14 [00:38<01:34,  9.42s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.76it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.76it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.76it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.76it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.75it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.76it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.76it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.76it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.75it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.8187[0m
-[32m  eval_f1 = 0.3513[0m
-[32m  eval_mcc = 0.8089[0m
-[32m  eval_precision = 0.4134[0m
-[32m  eval_recall = 0.3368[0m
-[32m  ********************[0m
-[32m  Best f1:0.3513[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.8089[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 3 loss 1.62671:  36%|███▌      | 5/14 [00:48<01:28,  9.82s/it]epoch 3 loss 1.60868:  36%|███▌      | 5/14 [00:49<01:28,  9.82s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.76it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.76it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.76it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.76it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.76it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.76it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.76it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.76it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.76it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.8199[0m
-[32m  eval_f1 = 0.3526[0m
-[32m  eval_mcc = 0.8102[0m
-[32m  eval_precision = 0.4128[0m
-[32m  eval_recall = 0.3381[0m
-[32m  ********************[0m
-[32m  Best f1:0.3526[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.8102[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 3 loss 1.60868:  43%|████▎     | 6/14 [00:59<01:21, 10.14s/it]epoch 3 loss 1.59152:  43%|████▎     | 6/14 [01:00<01:21, 10.14s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.76it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.76it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.76it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.76it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.76it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.76it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.76it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.76it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.76it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.821[0m
-[32m  eval_f1 = 0.3537[0m
-[32m  eval_mcc = 0.8113[0m
-[32m  eval_precision = 0.4132[0m
-[32m  eval_recall = 0.3398[0m
-[32m  ********************[0m
-[32m  Best f1:0.3537[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.8113[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 3 loss 1.59152:  50%|█████     | 7/14 [01:09<01:10, 10.09s/it]epoch 3 loss 1.57639:  50%|█████     | 7/14 [01:10<01:10, 10.09s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.72it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.74it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.75it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.76it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.75it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.76it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.76it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.75it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.75it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.8219[0m
-[32m  eval_f1 = 0.3548[0m
-[32m  eval_mcc = 0.8122[0m
-[32m  eval_precision = 0.422[0m
-[32m  eval_recall = 0.3407[0m
-[32m  ********************[0m
-[32m  Best f1:0.3548[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.8122[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 3 loss 1.57639:  57%|█████▋    | 8/14 [01:19<01:01, 10.24s/it]epoch 3 loss 1.55788:  57%|█████▋    | 8/14 [01:20<01:01, 10.24s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.73it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.75it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.75it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.76it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.75it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.76it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.76it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.76it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.75it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.8233[0m
-[32m  eval_f1 = 0.3569[0m
-[32m  eval_mcc = 0.8138[0m
-[32m  eval_precision = 0.4312[0m
-[32m  eval_recall = 0.3427[0m
-[32m  ********************[0m
-[32m  Best f1:0.3569[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.8138[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 3 loss 1.55788:  64%|██████▍   | 9/14 [01:28<00:48,  9.80s/it]epoch 3 loss 1.54566:  64%|██████▍   | 9/14 [01:29<00:48,  9.80s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.76it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.76it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.76it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.76it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.76it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.76it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.76it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.76it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.75it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.8244[0m
-[32m  eval_f1 = 0.3582[0m
-[32m  eval_mcc = 0.8149[0m
-[32m  eval_precision = 0.4314[0m
-[32m  eval_recall = 0.3441[0m
-[32m  ********************[0m
-[32m  Best f1:0.3582[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.8149[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 3 loss 1.54566:  71%|███████▏  | 10/14 [01:39<00:39,  9.97s/it]epoch 3 loss 1.53685:  71%|███████▏  | 10/14 [01:39<00:39,  9.97s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.76it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.76it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.76it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.76it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.76it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.76it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.76it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.76it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.76it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.8255[0m
-[32m  eval_f1 = 0.3614[0m
-[32m  eval_mcc = 0.8161[0m
-[32m  eval_precision = 0.4403[0m
-[32m  eval_recall = 0.3465[0m
-[32m  ********************[0m
-[32m  Best f1:0.3614[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.8161[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 3 loss 1.53685:  79%|███████▊  | 11/14 [01:47<00:28,  9.61s/it]epoch 3 loss 1.51756:  79%|███████▊  | 11/14 [01:48<00:28,  9.61s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.76it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.76it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.76it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.76it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.75it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.76it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.76it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.75it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.75it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.8264[0m
-[32m  eval_f1 = 0.3619[0m
-[32m  eval_mcc = 0.817[0m
-[32m  eval_precision = 0.4405[0m
-[32m  eval_recall = 0.347[0m
-[32m  ********************[0m
-[32m  Best f1:0.3619[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.817[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 3 loss 1.51756:  86%|████████▌ | 12/14 [01:58<00:19,  9.95s/it]epoch 3 loss 1.50658:  86%|████████▌ | 12/14 [01:59<00:19,  9.95s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.76it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.76it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.76it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.76it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.76it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.76it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.76it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.76it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.76it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.8269[0m
-[32m  eval_f1 = 0.3624[0m
-[32m  eval_mcc = 0.8176[0m
-[32m  eval_precision = 0.4408[0m
-[32m  eval_recall = 0.3474[0m
-[32m  ********************[0m
-[32m  Best f1:0.3624[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.8176[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 3 loss 1.50658:  93%|█████████▎| 13/14 [02:09<00:10, 10.24s/it]epoch 3 loss 1.49279:  93%|█████████▎| 13/14 [02:10<00:10, 10.24s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.77it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.77it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.76it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.76it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.76it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.76it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.76it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.76it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.76it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.8277[0m
-[32m  eval_f1 = 0.3637[0m
-[32m  eval_mcc = 0.8184[0m
-[32m  eval_precision = 0.4499[0m
-[32m  eval_recall = 0.3483[0m
-[32m  ********************[0m
-[32m  Best f1:0.3637[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.8184[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 3 loss 1.49279: 100%|██████████| 14/14 [02:19<00:00, 10.08s/it]epoch 3 loss 1.49279: 100%|██████████| 14/14 [02:19<00:00,  9.95s/it]
-  0%|          | 0/14 [00:00<?, ?it/s]epoch 4 loss 1.33595:   0%|          | 0/14 [00:00<?, ?it/s][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.76it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.76it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.76it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.76it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.76it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.76it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.76it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.76it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.76it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.8286[0m
-[32m  eval_f1 = 0.3645[0m
-[32m  eval_mcc = 0.8193[0m
-[32m  eval_precision = 0.4501[0m
-[32m  eval_recall = 0.3491[0m
-[32m  ********************[0m
-[32m  Best f1:0.3645[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.8193[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 4 loss 1.33595:   7%|▋         | 1/14 [00:10<02:21, 10.87s/it]epoch 4 loss 1.33922:   7%|▋         | 1/14 [00:11<02:21, 10.87s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.76it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.76it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.76it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.76it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.75it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.76it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.76it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.76it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.76it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.8293[0m
-[32m  eval_f1 = 0.365[0m
-[32m  eval_mcc = 0.8201[0m
-[32m  eval_precision = 0.4459[0m
-[32m  eval_recall = 0.3497[0m
-[32m  ********************[0m
-[32m  Best f1:0.365[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.8201[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 4 loss 1.33922:  14%|█▍        | 2/14 [00:18<01:48,  9.02s/it]epoch 4 loss 1.32002:  14%|█▍        | 2/14 [00:19<01:48,  9.02s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.75it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.75it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.75it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.75it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.75it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.75it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.76it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.75it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.75it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.8301[0m
-[32m  eval_f1 = 0.365[0m
-[32m  eval_mcc = 0.8209[0m
-[32m  eval_precision = 0.4374[0m
-[32m  eval_recall = 0.3501[0m
-[32m  ********************[0m
-[32m  Best f1:0.365[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.8209[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 4 loss 1.32002:  21%|██▏       | 3/14 [00:29<01:46,  9.69s/it]epoch 4 loss 1.30635:  21%|██▏       | 3/14 [00:29<01:46,  9.69s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.76it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.76it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.76it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.76it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.76it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.76it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.76it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.76it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.76it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.8306[0m
-[32m  eval_f1 = 0.3655[0m
-[32m  eval_mcc = 0.8215[0m
-[32m  eval_precision = 0.4376[0m
-[32m  eval_recall = 0.3505[0m
-[32m  ********************[0m
-[32m  Best f1:0.3655[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.8215[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 4 loss 1.30635:  29%|██▊       | 4/14 [00:38<01:34,  9.48s/it]epoch 4 loss 1.29804:  29%|██▊       | 4/14 [00:39<01:34,  9.48s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.76it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.76it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.76it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.76it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.76it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.76it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.76it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.76it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.76it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.8313[0m
-[32m  eval_f1 = 0.3661[0m
-[32m  eval_mcc = 0.8222[0m
-[32m  eval_precision = 0.4378[0m
-[32m  eval_recall = 0.351[0m
-[32m  ********************[0m
-[32m  Best f1:0.3661[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.8222[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 4 loss 1.29804:  36%|███▌      | 5/14 [00:48<01:27,  9.76s/it]epoch 4 loss 1.29716:  36%|███▌      | 5/14 [00:49<01:27,  9.76s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.76it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.76it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.76it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.76it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.76it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.76it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.76it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.76it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.76it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.8316[0m
-[32m  eval_f1 = 0.3663[0m
-[32m  eval_mcc = 0.8225[0m
-[32m  eval_precision = 0.4376[0m
-[32m  eval_recall = 0.3513[0m
-[32m  ********************[0m
-[32m  Best f1:0.3663[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.8225[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 4 loss 1.29716:  43%|████▎     | 6/14 [00:57<01:14,  9.36s/it]epoch 4 loss 1.28557:  43%|████▎     | 6/14 [00:57<01:14,  9.36s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.76it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.76it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.75it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.76it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.76it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.76it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.76it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.76it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.75it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.832[0m
-[32m  eval_f1 = 0.3665[0m
-[32m  eval_mcc = 0.823[0m
-[32m  eval_precision = 0.4376[0m
-[32m  eval_recall = 0.3515[0m
-[32m  ********************[0m
-[32m  Best f1:0.3665[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.823[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 4 loss 1.28557:  50%|█████     | 7/14 [01:07<01:07,  9.68s/it]epoch 4 loss 1.28048:  50%|█████     | 7/14 [01:08<01:07,  9.68s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.76it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.77it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.76it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.76it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.76it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.76it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.76it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.76it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.75it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.8324[0m
-[32m  eval_f1 = 0.367[0m
-[32m  eval_mcc = 0.8234[0m
-[32m  eval_precision = 0.4377[0m
-[32m  eval_recall = 0.3519[0m
-[32m  ********************[0m
-[32m  Best f1:0.367[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.8234[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 4 loss 1.28048:  57%|█████▋    | 8/14 [01:16<00:57,  9.55s/it]epoch 4 loss 1.28369:  57%|█████▋    | 8/14 [01:17<00:57,  9.55s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.72it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.75it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.75it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.75it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.76it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.76it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.76it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.76it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.75it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.8328[0m
-[32m  eval_f1 = 0.3672[0m
-[32m  eval_mcc = 0.8238[0m
-[32m  eval_precision = 0.4379[0m
-[32m  eval_recall = 0.352[0m
-[32m  ********************[0m
-[32m  Best f1:0.3672[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.8238[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 4 loss 1.28369:  64%|██████▍   | 9/14 [01:27<00:49,  9.93s/it]epoch 4 loss 1.28036:  64%|██████▍   | 9/14 [01:28<00:49,  9.93s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.76it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.76it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.76it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.76it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.76it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.76it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.76it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.76it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.76it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.8332[0m
-[32m  eval_f1 = 0.3673[0m
-[32m  eval_mcc = 0.8242[0m
-[32m  eval_precision = 0.438[0m
-[32m  eval_recall = 0.3522[0m
-[32m  ********************[0m
-[32m  Best f1:0.3673[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.8242[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 4 loss 1.28036:  71%|███████▏  | 10/14 [01:38<00:40, 10.24s/it]epoch 4 loss 1.271:  71%|███████▏  | 10/14 [01:39<00:40, 10.24s/it]  [32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.76it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.76it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.76it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.76it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.76it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.76it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.76it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.76it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.76it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.8333[0m
-[32m  eval_f1 = 0.3687[0m
-[32m  eval_mcc = 0.8244[0m
-[32m  eval_precision = 0.4484[0m
-[32m  eval_recall = 0.353[0m
-[32m  ********************[0m
-[32m  Best f1:0.3687[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.8244[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 4 loss 1.271:  79%|███████▊  | 11/14 [01:49<00:31, 10.42s/it]epoch 4 loss 1.26999:  79%|███████▊  | 11/14 [01:50<00:31, 10.42s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.76it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.76it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.76it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.76it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.76it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.76it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.76it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.76it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.76it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.8334[0m
-[32m  eval_f1 = 0.3688[0m
-[32m  eval_mcc = 0.8245[0m
-[32m  eval_precision = 0.4485[0m
-[32m  eval_recall = 0.353[0m
-[32m  ********************[0m
-[32m  Best f1:0.3688[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.8245[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 4 loss 1.26999:  86%|████████▌ | 12/14 [01:59<00:20, 10.50s/it]epoch 4 loss 1.26245:  86%|████████▌ | 12/14 [02:00<00:20, 10.50s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.76it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.77it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.76it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.76it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.76it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.76it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.76it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.76it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.76it/s][A100%|██████████| 10/10 [00:03<00:00,  3.00it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.8335[0m
-[32m  eval_f1 = 0.3688[0m
-[32m  eval_mcc = 0.8245[0m
-[32m  eval_precision = 0.4485[0m
-[32m  eval_recall = 0.353[0m
-[32m  ********************[0m
-[32m  Best f1:0.3688[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.8245[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 4 loss 1.26245:  93%|█████████▎| 13/14 [02:10<00:10, 10.53s/it]epoch 4 loss 1.25711:  93%|█████████▎| 13/14 [02:11<00:10, 10.53s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 10%|█         | 1/10 [00:00<00:03,  2.77it/s][A
- 20%|██        | 2/10 [00:00<00:02,  2.76it/s][A
- 30%|███       | 3/10 [00:01<00:02,  2.76it/s][A
- 40%|████      | 4/10 [00:01<00:02,  2.76it/s][A
- 50%|█████     | 5/10 [00:01<00:01,  2.76it/s][A
- 60%|██████    | 6/10 [00:02<00:01,  2.76it/s][A
- 70%|███████   | 7/10 [00:02<00:01,  2.76it/s][A
- 80%|████████  | 8/10 [00:02<00:00,  2.76it/s][A
- 90%|█████████ | 9/10 [00:03<00:00,  2.76it/s][A100%|██████████| 10/10 [00:03<00:00,  3.01it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.8335[0m
-[32m  eval_f1 = 0.3688[0m
-[32m  eval_mcc = 0.8246[0m
-[32m  eval_precision = 0.4485[0m
-[32m  eval_recall = 0.353[0m
-[32m  ********************[0m
-[32m  Best f1:0.3688[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-f1/model.bin[0m
-[32m  ********************[0m
-[32m  Best MCC:0.8246[0m
-[32m  ********************[0m
-[32mSaving model checkpoint to ./pos_res_java_graph/plm/saved_graphcodebertmodels/4/layer_6/checkpoint-best-mcc/model.bin[0m
-
-epoch 4 loss 1.25711: 100%|██████████| 14/14 [02:21<00:00, 10.79s/it]epoch 4 loss 1.25711: 100%|██████████| 14/14 [02:21<00:00, 10.14s/it][32m***** Running evaluation *****[0m
-[32m  Num examples = 293[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s] 10%|█         | 1/10 [00:00<00:03,  2.67it/s] 20%|██        | 2/10 [00:00<00:02,  2.72it/s] 30%|███       | 3/10 [00:01<00:02,  2.74it/s] 40%|████      | 4/10 [00:01<00:02,  2.75it/s] 50%|█████     | 5/10 [00:01<00:01,  2.76it/s] 60%|██████    | 6/10 [00:02<00:01,  2.76it/s] 70%|███████   | 7/10 [00:02<00:01,  2.75it/s] 80%|████████  | 8/10 [00:02<00:00,  2.75it/s] 90%|█████████ | 9/10 [00:03<00:00,  2.75it/s]100%|██████████| 10/10 [00:03<00:00,  2.99it/s][32m***** Eval results *****[0m
-[32m  eval_acc = 0.8335[0m
-[32m  eval_f1 = 0.3688[0m
-[32m  eval_mcc = 0.8246[0m
-[32m  eval_precision = 0.4485[0m
-[32m  eval_recall = 0.353[0m
-[32m***** Running Test *****[0m
-[32m  Num examples = 295[0m
-[32m  Batch size = 32[0m
-
-  0%|          | 0/10 [00:00<?, ?it/s] 10%|█         | 1/10 [00:00<00:03,  2.77it/s] 20%|██        | 2/10 [00:00<00:02,  2.76it/s] 30%|███       | 3/10 [00:01<00:02,  2.76it/s] 40%|████      | 4/10 [00:01<00:02,  2.76it/s] 50%|█████     | 5/10 [00:01<00:01,  2.76it/s] 60%|██████    | 6/10 [00:02<00:01,  2.76it/s] 70%|███████   | 7/10 [00:02<00:01,  2.76it/s] 80%|████████  | 8/10 [00:02<00:00,  2.76it/s] 90%|█████████ | 9/10 [00:03<00:00,  2.76it/s]100%|██████████| 10/10 [00:03<00:00,  2.99it/s][32m***** Test results *****[0m
-[32m  eval_acc = 0.8206[0m
-[32m  eval_f1 = 0.3007[0m
-[32m  eval_mcc = 0.8115[0m
-[32m  eval_precision = 0.392[0m
-[32m  eval_recall = 0.2867[0m
-
