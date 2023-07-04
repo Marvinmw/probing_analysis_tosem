@@ -97,6 +97,79 @@ class CodeBERTDataset(Dataset):
         )
 
 
+class UnixDataset(Dataset):
+    def __init__(
+        self,
+        args,
+        logger,
+        tokenizer,
+        source_code=source_code,
+        programlist=None
+    ) -> None:
+        global cache_span
+        #  global graph_data
+        self.examples = []
+        self.examples_map_index = {}
+        self.reverse_examples_map_index = {}
+        self.args = args
+        self.logger = logger
+        index_filename = source_code
+        self.code_cache = {}
+        data_folder = args.data_folder
+
+        with open(index_filename) as f_google:
+            hh = f_google.readlines()
+            for i in tqdm(range(len(hh))):
+                l_google = hh[i]
+                data_google = json.loads(l_google)
+                indexmap, code_func = normalization_code(data_google["code"])
+                index_id = data_google["index"]
+                source_tokens = tokenizer.tokenize(code_func
+                                                  )[:args.max_code_length - 4]
+                source_tokens = [
+                    tokenizer.cls_token, "<encoder-only>", tokenizer.sep_token
+                ] + source_tokens + [tokenizer.sep_token]
+                source_ids = tokenizer.convert_tokens_to_ids(source_tokens)
+                source_mask = [1] * (len(source_tokens))
+                padding_length = args.max_code_length - len(source_ids)
+                source_ids += [tokenizer.pad_token_id] * padding_length
+                source_mask += [0] * padding_length
+                self.code_cache[index_id] = (source_ids, source_mask)
+
+        #load data
+        for i, k in enumerate(list(self.code_cache.keys())):
+            is_include = True if programlist is None else k in programlist
+            if is_include:
+                self.examples.append(k)
+                self.examples_map_index[k] = i
+                self.reverse_examples_map_index[i] = k
+
+    def print_example(self, tokenizer):
+        for idx, index in enumerate(self.examples[:3]):
+            self.logger.info("*** Example ***")
+            self.logger.info("idx: {}".format(index))
+            self.logger.info(
+                "input_tokens_reverse_1: {}".format(
+                    ' '.join(
+                        tokenizer.convert_ids_to_tokens(
+                            self.code_cache[index][0]
+                        )
+                    )
+                )
+            )
+
+    def __len__(self):
+        return len(self.examples)
+
+    def __getitem__(self, item):
+        #calculate graph-guided masked function
+        index = self.examples[item]
+        # ex1_span, ex2_span, label, source_id, attention_mask
+        return (
+            torch.tensor(self.examples_map_index[index]),
+            torch.tensor(self.code_cache[index][0]),
+            torch.tensor(self.code_cache[index][1])
+        )
 
 
 def set_seed(args):
@@ -246,7 +319,7 @@ if __name__ == "__main__":
     tokenizer = AutoTokenizer.from_pretrained(args.token_config)
     # create dataset
     logger.info("Load Dataset")
-    if args.model_name == "codebert":
+    if args.model_name == "codebert" or args.model_name == "graphcodebert":
         dataset = CodeBERTDataset(
             args,
             logger,
@@ -254,7 +327,17 @@ if __name__ == "__main__":
             source_code=source_code,
             programlist=programlist
         )
-    
+    elif args.model_name == "unixcoder":
+        dataset = UnixDataset(
+            args,
+            logger,
+            tokenizer,
+            source_code=source_code,
+            programlist=programlist
+        )
+    else:
+        assert False,  f"{args.model_name}"
+
     dataset.print_example(tokenizer)
     logger.info("Finishing loading Dataset")
     if args.do_random:

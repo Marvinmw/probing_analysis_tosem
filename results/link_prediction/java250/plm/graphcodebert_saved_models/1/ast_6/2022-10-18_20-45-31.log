@@ -1,0 +1,610 @@
+2022-10-18 20:45:31.870 1013:link-prediction        DEBUG  main message
+2022-10-18 20:45:31.870 1019:link-prediction        WARNING device: cuda, n_gpu: 1
+2022-10-18 20:45:40.054 1040:link-prediction        INFO   Probimg Model Parameters 3843
+2022-10-18 20:45:40.055 1041:link-prediction        INFO   Training/evaluation parameters Namespace(adam_epsilon=1e-08, class_num=2, code_length=512, config_name='microsoft/graphcodebert-base', data_flow_length=128, data_folder='../datasets/java250/graphs', dataset='java250', debug=False, device=device(type='cuda'), do_crossing=True, do_eval=False, do_random=False, do_test=True, do_train=True, epochs=2, eval_batch_size=32, evaluate_during_training=False, gradient_accumulation_steps=1, graph_type='ast', layer=6, learning_rate=0.001, max_grad_norm=1.0, max_steps=-1, model_name='graphcodebert', model_name_or_path='microsoft/graphcodebert-base', n_gpu=1, output_dir='../link_prediction/java250/plm/graphcodebert_saved_models/1/ast_6', seed=492, token_config='microsoft/graphcodebert-base', train_batch_size=64, warmup_steps=0, weight_decay=0.0)
+2022-10-18 20:45:40.055 1053:link-prediction        INFO   Load Dataset
+2022-10-18 20:46:35.476 356:link-prediction        INFO   Load Span file and Graph data, data path: ../datasets/java250/graphs/graphcodebert/graphcodebert_train_ast_cleaned.pt
+2022-10-18 20:46:37.585 415:link-prediction        INFO   Labels Counter({0: 38946, 1: 38567})
+2022-10-18 20:46:37.670 356:link-prediction        INFO   Load Span file and Graph data, data path: ../datasets/java250/graphs/graphcodebert/graphcodebert_valid_ast_cleaned.pt
+2022-10-18 20:46:38.597 415:link-prediction        INFO   Labels Counter({0: 12975, 1: 12839})
+2022-10-18 20:46:38.690 356:link-prediction        INFO   Load Span file and Graph data, data path: ../datasets/java250/graphs/graphcodebert/graphcodebert_test_ast_cleaned.pt
+2022-10-18 20:46:39.851 415:link-prediction        INFO   Labels Counter({0: 12840, 1: 12718})
+2022-10-18 20:46:39.851 419:link-prediction        INFO   *** Example ***
+2022-10-18 20:46:39.851 420:link-prediction        INFO   idx: s875146888_solve
+2022-10-18 20:46:39.851 421:link-prediction        INFO   label: 0
+2022-10-18 20:46:39.853 422:link-prediction        INFO   input_tokens_1: ['L']
+2022-10-18 20:46:39.854 430:link-prediction        INFO   input_ids_1: 16 17
+2022-10-18 20:46:39.854 437:link-prediction        INFO   input_tokens_reverse_1: ĠL
+2022-10-18 20:46:39.855 447:link-prediction        INFO   input_tokens_2: ['Math', '.', 'abs', '(', 'arr', '[', 'N', '_-', '_1', '])']
+2022-10-18 20:46:39.855 455:link-prediction        INFO   input_ids_2: 97 108
+2022-10-18 20:46:39.855 462:link-prediction        INFO   input_tokens_reverse_2: ĠMath Ġ. Ġabs Ġ( Ġarr Ġ[ ĠN Ġ- Ġ1 Ġ] Ġ)
+2022-10-18 20:46:39.856 419:link-prediction        INFO   *** Example ***
+2022-10-18 20:46:39.856 420:link-prediction        INFO   idx: s605449832_binarySearch
+2022-10-18 20:46:39.856 421:link-prediction        INFO   label: 0
+2022-10-18 20:46:39.857 422:link-prediction        INFO   input_tokens_1: ['if', '_(', 'arr', '[', 'mid', ']', '_==', '_key', ')']
+2022-10-18 20:46:39.857 430:link-prediction        INFO   input_ids_1: 59 68
+2022-10-18 20:46:39.857 437:link-prediction        INFO   input_tokens_reverse_1: Ġif Ġ( Ġarr Ġ[ Ġmid Ġ] Ġ== Ġkey Ġ)
+2022-10-18 20:46:39.858 447:link-prediction        INFO   input_tokens_2: ['if', '_(', 'low', '_>', '_high', ')']
+2022-10-18 20:46:39.858 455:link-prediction        INFO   input_ids_2: 93 99
+2022-10-18 20:46:39.858 462:link-prediction        INFO   input_tokens_reverse_2: Ġif Ġ( Ġlow Ġ> Ġhigh Ġ)
+2022-10-18 20:46:39.859 419:link-prediction        INFO   *** Example ***
+2022-10-18 20:46:39.859 420:link-prediction        INFO   idx: s579168028_main
+2022-10-18 20:46:39.859 421:link-prediction        INFO   label: 0
+2022-10-18 20:46:39.860 422:link-prediction        INFO   input_tokens_1: ['System', '.', 'out']
+2022-10-18 20:46:39.860 430:link-prediction        INFO   input_ids_1: 73 76
+2022-10-18 20:46:39.860 437:link-prediction        INFO   input_tokens_reverse_1: ĠSystem Ġ. Ġout
+2022-10-18 20:46:39.861 447:link-prediction        INFO   input_tokens_2: ['new', '_Scan', 'ner', '(', 'System', '.', 'in', ')']
+2022-10-18 20:46:39.861 455:link-prediction        INFO   input_ids_2: 17 25
+2022-10-18 20:46:39.861 462:link-prediction        INFO   input_tokens_reverse_2: Ġnew ĠScan ner Ġ( ĠSystem Ġ. Ġin Ġ)
+2022-10-18 20:46:39.862 419:link-prediction        INFO   *** Example ***
+2022-10-18 20:46:39.862 420:link-prediction        INFO   idx: s399157060_main
+2022-10-18 20:46:39.862 421:link-prediction        INFO   label: 0
+2022-10-18 20:46:39.862 422:link-prediction        INFO   input_tokens_1: ['han', 'ako', 'Card']
+2022-10-18 20:46:39.863 430:link-prediction        INFO   input_ids_1: 76 80
+2022-10-18 20:46:39.863 437:link-prediction        INFO   input_tokens_reverse_1: Ġh an ako Card
+2022-10-18 20:46:39.864 447:link-prediction        INFO   input_tokens_2: ['scan', '_=', '_new', '_Scan', 'ner', '(', 'System', '.', 'in', ')']
+2022-10-18 20:46:39.864 455:link-prediction        INFO   input_ids_2: 15 25
+2022-10-18 20:46:39.864 462:link-prediction        INFO   input_tokens_reverse_2: Ġscan Ġ= Ġnew ĠScan ner Ġ( ĠSystem Ġ. Ġin Ġ)
+2022-10-18 20:46:39.864 419:link-prediction        INFO   *** Example ***
+2022-10-18 20:46:39.865 420:link-prediction        INFO   idx: s815780684_main
+2022-10-18 20:46:39.865 421:link-prediction        INFO   label: 1
+2022-10-18 20:46:39.865 422:link-prediction        INFO   input_tokens_1: ['ans', '_+', '_(', 'long', ')', '_ans', '1']
+2022-10-18 20:46:39.866 430:link-prediction        INFO   input_ids_1: 79 86
+2022-10-18 20:46:39.866 437:link-prediction        INFO   input_tokens_reverse_1: Ġans Ġ+ Ġ( Ġlong Ġ) Ġans 1
+2022-10-18 20:46:39.866 447:link-prediction        INFO   input_tokens_2: ['(', 'long', ')', '_ans', '1']
+2022-10-18 20:46:39.867 455:link-prediction        INFO   input_ids_2: 81 86
+2022-10-18 20:46:39.867 462:link-prediction        INFO   input_tokens_reverse_2: Ġ( Ġlong Ġ) Ġans 1
+2022-10-18 20:46:39.867 419:link-prediction        INFO   *** Example ***
+2022-10-18 20:46:39.867 420:link-prediction        INFO   idx: s009162144_main
+2022-10-18 20:46:39.868 421:link-prediction        INFO   label: 0
+2022-10-18 20:46:39.868 422:link-prediction        INFO   input_tokens_1: ['0']
+2022-10-18 20:46:39.868 430:link-prediction        INFO   input_ids_1: 70 71
+2022-10-18 20:46:39.868 437:link-prediction        INFO   input_tokens_reverse_1: Ġ0
+2022-10-18 20:46:39.869 447:link-prediction        INFO   input_tokens_2: ['new', '_long', '[', 'N', ']']
+2022-10-18 20:46:39.869 455:link-prediction        INFO   input_ids_2: 50 55
+2022-10-18 20:46:39.869 462:link-prediction        INFO   input_tokens_reverse_2: Ġnew Ġlong Ġ[ ĠN Ġ]
+2022-10-18 20:46:39.869 419:link-prediction        INFO   *** Example ***
+2022-10-18 20:46:39.869 420:link-prediction        INFO   idx: s636720224_nextPackedIntArrays
+2022-10-18 20:46:39.869 421:link-prediction        INFO   label: 0
+2022-10-18 20:46:39.870 422:link-prediction        INFO   input_tokens_1: ['res', '[', 'j', '][', 'i', ']']
+2022-10-18 20:46:39.870 430:link-prediction        INFO   input_ids_1: 71 78
+2022-10-18 20:46:39.870 437:link-prediction        INFO   input_tokens_reverse_1: Ġres Ġ[ Ġj Ġ] Ġ[ Ġi Ġ]
+2022-10-18 20:46:39.870 447:link-prediction        INFO   input_tokens_2: ['0']
+2022-10-18 20:46:39.870 455:link-prediction        INFO   input_ids_2: 45 46
+2022-10-18 20:46:39.871 462:link-prediction        INFO   input_tokens_reverse_2: Ġ0
+2022-10-18 20:46:39.871 419:link-prediction        INFO   *** Example ***
+2022-10-18 20:46:39.871 420:link-prediction        INFO   idx: s776780512_main
+2022-10-18 20:46:39.871 421:link-prediction        INFO   label: 1
+2022-10-18 20:46:39.871 422:link-prediction        INFO   input_tokens_1: ['num', '1', '_>', '_num', '2']
+2022-10-18 20:46:39.872 430:link-prediction        INFO   input_ids_1: 71 76
+2022-10-18 20:46:39.872 437:link-prediction        INFO   input_tokens_reverse_1: Ġnum 1 Ġ> Ġnum 2
+2022-10-18 20:46:39.872 447:link-prediction        INFO   input_tokens_2: ['num', '2']
+2022-10-18 20:46:39.872 455:link-prediction        INFO   input_ids_2: 74 76
+2022-10-18 20:46:39.872 462:link-prediction        INFO   input_tokens_reverse_2: Ġnum 2
+2022-10-18 20:46:39.873 419:link-prediction        INFO   *** Example ***
+2022-10-18 20:46:39.873 420:link-prediction        INFO   idx: s845106652_main
+2022-10-18 20:46:39.873 421:link-prediction        INFO   label: 0
+2022-10-18 20:46:39.873 422:link-prediction        INFO   input_tokens_1: ['sc', '.', 'next', '().', 'split', '("', '")']
+2022-10-18 20:46:39.873 430:link-prediction        INFO   input_ids_1: 38 48
+2022-10-18 20:46:39.873 437:link-prediction        INFO   input_tokens_reverse_1: Ġsc Ġ. Ġnext Ġ( Ġ) Ġ. Ġsplit Ġ( Ġ"" Ġ)
+2022-10-18 20:46:39.873 447:link-prediction        INFO   input_tokens_2: ['void']
+2022-10-18 20:46:39.874 455:link-prediction        INFO   input_ids_2: 3 4
+2022-10-18 20:46:39.874 462:link-prediction        INFO   input_tokens_reverse_2: Ġvoid
+2022-10-18 20:46:39.874 419:link-prediction        INFO   *** Example ***
+2022-10-18 20:46:39.874 420:link-prediction        INFO   idx: s567500269_main
+2022-10-18 20:46:39.874 421:link-prediction        INFO   label: 0
+2022-10-18 20:46:39.874 422:link-prediction        INFO   input_tokens_1: ['s', '[', '1', ']']
+2022-10-18 20:46:39.874 430:link-prediction        INFO   input_ids_1: 81 85
+2022-10-18 20:46:39.874 437:link-prediction        INFO   input_tokens_reverse_1: Ġs Ġ[ Ġ1 Ġ]
+2022-10-18 20:46:39.875 447:link-prediction        INFO   input_tokens_2: ['System', '.', 'out', '.', 'println', '("', 'He', 'ise', 'i', '")']
+2022-10-18 20:46:39.875 455:link-prediction        INFO   input_ids_2: 64 76
+2022-10-18 20:46:39.875 462:link-prediction        INFO   input_tokens_reverse_2: ĠSystem Ġ. Ġout Ġ. Ġprintln Ġ( Ġ" He ise i " Ġ)
+2022-10-18 20:46:39.875 419:link-prediction        INFO   *** Example ***
+2022-10-18 20:46:39.875 420:link-prediction        INFO   idx: s988778902_main
+2022-10-18 20:46:39.875 421:link-prediction        INFO   label: 1
+2022-10-18 20:46:39.875 422:link-prediction        INFO   input_tokens_1: ['System', '.', 'out', '.', 'println', '(', 'hit', ')']
+2022-10-18 20:46:39.876 430:link-prediction        INFO   input_ids_1: 108 116
+2022-10-18 20:46:39.876 437:link-prediction        INFO   input_tokens_reverse_1: ĠSystem Ġ. Ġout Ġ. Ġprintln Ġ( Ġhit Ġ)
+2022-10-18 20:46:39.876 447:link-prediction        INFO   input_tokens_2: ['System', '.', 'out']
+2022-10-18 20:46:39.876 455:link-prediction        INFO   input_ids_2: 108 111
+2022-10-18 20:46:39.876 462:link-prediction        INFO   input_tokens_reverse_2: ĠSystem Ġ. Ġout
+2022-10-18 20:46:39.876 419:link-prediction        INFO   *** Example ***
+2022-10-18 20:46:39.876 420:link-prediction        INFO   idx: s027443282_connect
+2022-10-18 20:46:39.876 421:link-prediction        INFO   label: 1
+2022-10-18 20:46:39.877 422:link-prediction        INFO   input_tokens_1: ['root', 'P', '_=', '_root', '(', 'p', ')']
+2022-10-18 20:46:39.877 430:link-prediction        INFO   input_ids_1: 14 21
+2022-10-18 20:46:39.877 437:link-prediction        INFO   input_tokens_reverse_1: Ġroot P Ġ= Ġroot Ġ( Ġp Ġ)
+2022-10-18 20:46:39.877 447:link-prediction        INFO   input_tokens_2: ['root', '(', 'p', ')']
+2022-10-18 20:46:39.877 455:link-prediction        INFO   input_ids_2: 17 21
+2022-10-18 20:46:39.877 462:link-prediction        INFO   input_tokens_reverse_2: Ġroot Ġ( Ġp Ġ)
+2022-10-18 20:46:39.877 419:link-prediction        INFO   *** Example ***
+2022-10-18 20:46:39.877 420:link-prediction        INFO   idx: s474529481_main
+2022-10-18 20:46:39.877 421:link-prediction        INFO   label: 1
+2022-10-18 20:46:39.878 422:link-prediction        INFO   input_tokens_1: ['System', '.', 'out', '.', 'println', '(', 'ans', ')']
+2022-10-18 20:46:39.878 430:link-prediction        INFO   input_ids_1: 121 129
+2022-10-18 20:46:39.878 437:link-prediction        INFO   input_tokens_reverse_1: ĠSystem Ġ. Ġout Ġ. Ġprintln Ġ( Ġans Ġ)
+2022-10-18 20:46:39.878 447:link-prediction        INFO   input_tokens_2: ['ans']
+2022-10-18 20:46:39.878 455:link-prediction        INFO   input_ids_2: 127 128
+2022-10-18 20:46:39.878 462:link-prediction        INFO   input_tokens_reverse_2: Ġans
+2022-10-18 20:46:39.878 419:link-prediction        INFO   *** Example ***
+2022-10-18 20:46:39.879 420:link-prediction        INFO   idx: s848362941_main
+2022-10-18 20:46:39.879 421:link-prediction        INFO   label: 1
+2022-10-18 20:46:39.879 422:link-prediction        INFO   input_tokens_1: ['al', '.', 'get', '(', 'i', ')']
+2022-10-18 20:46:39.879 430:link-prediction        INFO   input_ids_1: 113 119
+2022-10-18 20:46:39.879 437:link-prediction        INFO   input_tokens_reverse_1: Ġal Ġ. Ġget Ġ( Ġi Ġ)
+2022-10-18 20:46:39.879 447:link-prediction        INFO   input_tokens_2: ['i']
+2022-10-18 20:46:39.880 455:link-prediction        INFO   input_ids_2: 117 118
+2022-10-18 20:46:39.880 462:link-prediction        INFO   input_tokens_reverse_2: Ġi
+2022-10-18 20:46:39.880 419:link-prediction        INFO   *** Example ***
+2022-10-18 20:46:39.880 420:link-prediction        INFO   idx: s661905585_calc
+2022-10-18 20:46:39.880 421:link-prediction        INFO   label: 0
+2022-10-18 20:46:39.880 422:link-prediction        INFO   input_tokens_1: ['System']
+2022-10-18 20:46:39.881 430:link-prediction        INFO   input_ids_1: 16 17
+2022-10-18 20:46:39.881 437:link-prediction        INFO   input_tokens_reverse_1: ĠSystem
+2022-10-18 20:46:39.881 447:link-prediction        INFO   input_tokens_2: ['rb']
+2022-10-18 20:46:39.881 455:link-prediction        INFO   input_ids_2: 105 107
+2022-10-18 20:46:39.881 462:link-prediction        INFO   input_tokens_reverse_2: Ġr b
+2022-10-18 20:46:39.881 419:link-prediction        INFO   *** Example ***
+2022-10-18 20:46:39.881 420:link-prediction        INFO   idx: s948018088_main
+2022-10-18 20:46:39.882 421:link-prediction        INFO   label: 1
+2022-10-18 20:46:39.882 422:link-prediction        INFO   input_tokens_1: ['if', '_(', 'one', '_>', '_0', ')']
+2022-10-18 20:46:39.882 430:link-prediction        INFO   input_ids_1: 120 126
+2022-10-18 20:46:39.882 437:link-prediction        INFO   input_tokens_reverse_1: Ġif Ġ( Ġone Ġ> Ġ0 Ġ)
+2022-10-18 20:46:39.882 447:link-prediction        INFO   input_tokens_2: ['one', '_>', '_0']
+2022-10-18 20:46:39.883 455:link-prediction        INFO   input_ids_2: 122 125
+2022-10-18 20:46:39.883 462:link-prediction        INFO   input_tokens_reverse_2: Ġone Ġ> Ġ0
+2022-10-18 20:46:39.883 419:link-prediction        INFO   *** Example ***
+2022-10-18 20:46:39.883 420:link-prediction        INFO   idx: s446957467_main
+2022-10-18 20:46:39.883 421:link-prediction        INFO   label: 0
+2022-10-18 20:46:39.883 422:link-prediction        INFO   input_tokens_1: ['div', 'is', 'ors']
+2022-10-18 20:46:39.883 430:link-prediction        INFO   input_ids_1: 42 45
+2022-10-18 20:46:39.884 437:link-prediction        INFO   input_tokens_reverse_1: Ġdiv is ors
+2022-10-18 20:46:39.884 447:link-prediction        INFO   input_tokens_2: ['Math', '.', 'min', '(', 'ans', ',', '_f', ')']
+2022-10-18 20:46:39.884 455:link-prediction        INFO   input_ids_2: 126 134
+2022-10-18 20:46:39.884 462:link-prediction        INFO   input_tokens_reverse_2: ĠMath Ġ. Ġmin Ġ( Ġans Ġ, Ġf Ġ)
+2022-10-18 20:46:39.884 419:link-prediction        INFO   *** Example ***
+2022-10-18 20:46:39.884 420:link-prediction        INFO   idx: s570241878_main
+2022-10-18 20:46:39.885 421:link-prediction        INFO   label: 0
+2022-10-18 20:46:39.885 422:link-prediction        INFO   input_tokens_1: ['m', '_=', '_sc', '.', 'next', 'Int', '()']
+2022-10-18 20:46:39.885 430:link-prediction        INFO   input_ids_1: 39 47
+2022-10-18 20:46:39.885 437:link-prediction        INFO   input_tokens_reverse_1: Ġm Ġ= Ġsc Ġ. Ġnext Int Ġ( Ġ)
+2022-10-18 20:46:39.885 447:link-prediction        INFO   input_tokens_2: ['i']
+2022-10-18 20:46:39.886 455:link-prediction        INFO   input_ids_2: 84 85
+2022-10-18 20:46:39.886 462:link-prediction        INFO   input_tokens_reverse_2: Ġi
+2022-10-18 20:46:39.886 419:link-prediction        INFO   *** Example ***
+2022-10-18 20:46:39.886 420:link-prediction        INFO   idx: s646691055_takearrl
+2022-10-18 20:46:39.886 421:link-prediction        INFO   label: 0
+2022-10-18 20:46:39.886 422:link-prediction        INFO   input_tokens_1: ['int', '_n']
+2022-10-18 20:46:39.887 430:link-prediction        INFO   input_ids_1: 10 12
+2022-10-18 20:46:39.887 437:link-prediction        INFO   input_tokens_reverse_1: Ġint Ġn
+2022-10-18 20:46:39.887 447:link-prediction        INFO   input_tokens_2: ['return', '_in', ';']
+2022-10-18 20:46:39.887 455:link-prediction        INFO   input_ids_2: 53 56
+2022-10-18 20:46:39.887 462:link-prediction        INFO   input_tokens_reverse_2: Ġreturn Ġin Ġ;
+2022-10-18 20:46:39.887 419:link-prediction        INFO   *** Example ***
+2022-10-18 20:46:39.887 420:link-prediction        INFO   idx: s027443282_connect
+2022-10-18 20:46:39.888 421:link-prediction        INFO   label: 1
+2022-10-18 20:46:39.888 422:link-prediction        INFO   input_tokens_1: ['rank', '[', 'root', 'Q', ']']
+2022-10-18 20:46:39.888 430:link-prediction        INFO   input_ids_1: 93 98
+2022-10-18 20:46:39.888 437:link-prediction        INFO   input_tokens_reverse_1: Ġrank Ġ[ Ġroot Q Ġ]
+2022-10-18 20:46:39.888 447:link-prediction        INFO   input_tokens_2: ['rank']
+2022-10-18 20:46:39.888 455:link-prediction        INFO   input_ids_2: 93 94
+2022-10-18 20:46:39.889 462:link-prediction        INFO   input_tokens_reverse_2: Ġrank
+2022-10-18 20:46:39.889 419:link-prediction        INFO   *** Example ***
+2022-10-18 20:46:39.889 420:link-prediction        INFO   idx: s892850669_main
+2022-10-18 20:46:39.889 421:link-prediction        INFO   label: 0
+2022-10-18 20:46:39.889 422:link-prediction        INFO   input_tokens_1: ['null']
+2022-10-18 20:46:39.889 430:link-prediction        INFO   input_ids_1: 54 55
+2022-10-18 20:46:39.889 437:link-prediction        INFO   input_tokens_reverse_1: Ġnull
+2022-10-18 20:46:39.889 447:link-prediction        INFO   input_tokens_2: ['in']
+2022-10-18 20:46:39.889 455:link-prediction        INFO   input_ids_2: 30 31
+2022-10-18 20:46:39.890 462:link-prediction        INFO   input_tokens_reverse_2: Ġin
+2022-10-18 20:46:39.890 419:link-prediction        INFO   *** Example ***
+2022-10-18 20:46:39.890 420:link-prediction        INFO   idx: s002949449_sum
+2022-10-18 20:46:39.890 421:link-prediction        INFO   label: 0
+2022-10-18 20:46:39.890 422:link-prediction        INFO   input_tokens_1: ['0']
+2022-10-18 20:46:39.890 430:link-prediction        INFO   input_ids_1: 19 20
+2022-10-18 20:46:39.890 437:link-prediction        INFO   input_tokens_reverse_1: Ġ0
+2022-10-18 20:46:39.890 447:link-prediction        INFO   input_tokens_2: ['sum']
+2022-10-18 20:46:39.890 455:link-prediction        INFO   input_ids_2: 11 12
+2022-10-18 20:46:39.890 462:link-prediction        INFO   input_tokens_reverse_2: Ġsum
+2022-10-18 20:46:39.891 419:link-prediction        INFO   *** Example ***
+2022-10-18 20:46:39.891 420:link-prediction        INFO   idx: s828224447_main
+2022-10-18 20:46:39.891 421:link-prediction        INFO   label: 1
+2022-10-18 20:46:39.891 422:link-prediction        INFO   input_tokens_1: ['t', '.', 'char', 'At', '(', 'i', ')']
+2022-10-18 20:46:39.891 430:link-prediction        INFO   input_ids_1: 106 113
+2022-10-18 20:46:39.891 437:link-prediction        INFO   input_tokens_reverse_1: Ġt Ġ. Ġchar At Ġ( Ġi Ġ)
+2022-10-18 20:46:39.891 447:link-prediction        INFO   input_tokens_2: ['i']
+2022-10-18 20:46:39.891 455:link-prediction        INFO   input_ids_2: 111 112
+2022-10-18 20:46:39.891 462:link-prediction        INFO   input_tokens_reverse_2: Ġi
+2022-10-18 20:46:39.892 419:link-prediction        INFO   *** Example ***
+2022-10-18 20:46:39.892 420:link-prediction        INFO   idx: s262222174_main
+2022-10-18 20:46:39.892 421:link-prediction        INFO   label: 0
+2022-10-18 20:46:39.892 422:link-prediction        INFO   input_tokens_1: ['sc', '.', 'next', 'Int', '()']
+2022-10-18 20:46:39.892 430:link-prediction        INFO   input_ids_1: 39 45
+2022-10-18 20:46:39.892 437:link-prediction        INFO   input_tokens_reverse_1: Ġsc Ġ. Ġnext Int Ġ( Ġ)
+2022-10-18 20:46:39.892 447:link-prediction        INFO   input_tokens_2: ['Ar', 'rays']
+2022-10-18 20:46:39.892 455:link-prediction        INFO   input_ids_2: 159 161
+2022-10-18 20:46:39.892 462:link-prediction        INFO   input_tokens_reverse_2: ĠAr rays
+2022-10-18 20:46:39.893 419:link-prediction        INFO   *** Example ***
+2022-10-18 20:46:39.893 420:link-prediction        INFO   idx: s373883861_main
+2022-10-18 20:46:39.893 421:link-prediction        INFO   label: 0
+2022-10-18 20:46:39.893 422:link-prediction        INFO   input_tokens_1: ['A', '[', 'i', ']', '_%', '_2']
+2022-10-18 20:46:39.893 430:link-prediction        INFO   input_ids_1: 115 121
+2022-10-18 20:46:39.893 437:link-prediction        INFO   input_tokens_reverse_1: ĠA Ġ[ Ġi Ġ] Ġ% Ġ2
+2022-10-18 20:46:39.893 447:link-prediction        INFO   input_tokens_2: ['System', '.', 'out']
+2022-10-18 20:46:39.893 455:link-prediction        INFO   input_ids_2: 156 159
+2022-10-18 20:46:39.893 462:link-prediction        INFO   input_tokens_reverse_2: ĠSystem Ġ. Ġout
+2022-10-18 20:46:39.894 419:link-prediction        INFO   *** Example ***
+2022-10-18 20:46:39.894 420:link-prediction        INFO   idx: s230671883_main
+2022-10-18 20:46:39.894 421:link-prediction        INFO   label: 1
+2022-10-18 20:46:39.894 422:link-prediction        INFO   input_tokens_1: ['for', '_(', 'int', '_i', '_=', '_0', ';', '_i', '_<', '_n', ';', '_i', '++)']
+2022-10-18 20:46:39.894 430:link-prediction        INFO   input_ids_1: 79 93
+2022-10-18 20:46:39.894 437:link-prediction        INFO   input_tokens_reverse_1: Ġfor Ġ( Ġint Ġi Ġ= Ġ0 Ġ; Ġi Ġ< Ġn Ġ; Ġi Ġ++ Ġ)
+2022-10-18 20:46:39.894 447:link-prediction        INFO   input_tokens_2: ['i', '_=', '_0']
+2022-10-18 20:46:39.894 455:link-prediction        INFO   input_ids_2: 82 85
+2022-10-18 20:46:39.894 462:link-prediction        INFO   input_tokens_reverse_2: Ġi Ġ= Ġ0
+2022-10-18 20:46:39.895 419:link-prediction        INFO   *** Example ***
+2022-10-18 20:46:39.895 420:link-prediction        INFO   idx: s621434572_main
+2022-10-18 20:46:39.895 421:link-prediction        INFO   label: 0
+2022-10-18 20:46:39.895 422:link-prediction        INFO   input_tokens_1: ['b']
+2022-10-18 20:46:39.895 430:link-prediction        INFO   input_ids_1: 150 151
+2022-10-18 20:46:39.895 437:link-prediction        INFO   input_tokens_reverse_1: Ġb
+2022-10-18 20:46:39.895 447:link-prediction        INFO   input_tokens_2: ['"', '_"']
+2022-10-18 20:46:39.895 455:link-prediction        INFO   input_ids_2: 216 218
+2022-10-18 20:46:39.895 462:link-prediction        INFO   input_tokens_reverse_2: Ġ" Ġ"
+2022-10-18 20:46:39.896 419:link-prediction        INFO   *** Example ***
+2022-10-18 20:46:39.896 420:link-prediction        INFO   idx: s136793165_main
+2022-10-18 20:46:39.896 421:link-prediction        INFO   label: 1
+2022-10-18 20:46:39.896 422:link-prediction        INFO   input_tokens_1: ['3', '_*', '_a', '[', 'm', ']']
+2022-10-18 20:46:39.896 430:link-prediction        INFO   input_ids_1: 115 121
+2022-10-18 20:46:39.896 437:link-prediction        INFO   input_tokens_reverse_1: Ġ3 Ġ* Ġa Ġ[ Ġm Ġ]
+2022-10-18 20:46:39.896 447:link-prediction        INFO   input_tokens_2: ['3']
+2022-10-18 20:46:39.896 455:link-prediction        INFO   input_ids_2: 115 116
+2022-10-18 20:46:39.896 462:link-prediction        INFO   input_tokens_reverse_2: Ġ3
+2022-10-18 20:46:39.897 419:link-prediction        INFO   *** Example ***
+2022-10-18 20:46:39.897 420:link-prediction        INFO   idx: s559744278_main
+2022-10-18 20:46:39.897 421:link-prediction        INFO   label: 1
+2022-10-18 20:46:39.897 422:link-prediction        INFO   input_tokens_1: ['i', '_=', '_0']
+2022-10-18 20:46:39.897 430:link-prediction        INFO   input_ids_1: 57 60
+2022-10-18 20:46:39.897 437:link-prediction        INFO   input_tokens_reverse_1: Ġi Ġ= Ġ0
+2022-10-18 20:46:39.897 447:link-prediction        INFO   input_tokens_2: ['i']
+2022-10-18 20:46:39.897 455:link-prediction        INFO   input_ids_2: 57 58
+2022-10-18 20:46:39.897 462:link-prediction        INFO   input_tokens_reverse_2: Ġi
+2022-10-18 20:46:39.897 419:link-prediction        INFO   *** Example ***
+2022-10-18 20:46:39.898 420:link-prediction        INFO   idx: s579085948_main
+2022-10-18 20:46:39.898 421:link-prediction        INFO   label: 1
+2022-10-18 20:46:39.898 422:link-prediction        INFO   input_tokens_1: ['sc', '_=', '_new', '_Scan', 'ner', '(', 'System', '.', 'in', ')']
+2022-10-18 20:46:39.898 430:link-prediction        INFO   input_ids_1: 15 25
+2022-10-18 20:46:39.898 437:link-prediction        INFO   input_tokens_reverse_1: Ġsc Ġ= Ġnew ĠScan ner Ġ( ĠSystem Ġ. Ġin Ġ)
+2022-10-18 20:46:39.898 447:link-prediction        INFO   input_tokens_2: ['sc']
+2022-10-18 20:46:39.898 455:link-prediction        INFO   input_ids_2: 15 16
+2022-10-18 20:46:39.898 462:link-prediction        INFO   input_tokens_reverse_2: Ġsc
+2022-10-18 20:46:40.782 571:link-prediction        INFO   ***** Running training *****
+2022-10-18 20:46:40.782 572:link-prediction        INFO     Num examples = 77513
+2022-10-18 20:46:40.782 573:link-prediction        INFO     Num Epochs = 2
+2022-10-18 20:46:40.782 574:link-prediction        INFO     Instantaneous batch size per GPU = 64
+2022-10-18 20:46:40.782 578:link-prediction        INFO     Total train batch size = 64
+2022-10-18 20:46:40.782 582:link-prediction        INFO     Gradient Accumulation steps = 1
+2022-10-18 20:46:40.782 585:link-prediction        INFO     Total optimization steps = 2424
+2022-10-18 20:46:47.716 700:link-prediction        INFO   ***** Running evaluation *****
+2022-10-18 20:46:47.716 701:link-prediction        INFO     Num examples = 25814
+2022-10-18 20:46:47.716 702:link-prediction        INFO     Batch size = 32
+2022-10-18 20:47:05.303 747:link-prediction        INFO   ***** Eval results *****
+2022-10-18 20:47:05.303 749:link-prediction        INFO     eval_acc = 0.8026
+2022-10-18 20:47:05.304 749:link-prediction        INFO     eval_f1 = 0.8171
+2022-10-18 20:47:05.304 749:link-prediction        INFO     eval_mcc = 0.6143
+2022-10-18 20:47:05.304 749:link-prediction        INFO     eval_precision = 0.7578
+2022-10-18 20:47:05.304 749:link-prediction        INFO     eval_recall = 0.8864
+2022-10-18 20:47:05.304 749:link-prediction        INFO     eval_threshold = 0.5
+2022-10-18 20:47:05.305 642:link-prediction        INFO     ********************
+2022-10-18 20:47:05.306 643:link-prediction        INFO     Best f1:0.8171
+2022-10-18 20:47:05.306 644:link-prediction        INFO     ********************
+2022-10-18 20:47:05.307 659:link-prediction        INFO   Saving model checkpoint to ../link_prediction/java250/plm/graphcodebert_saved_models/1/ast_6/checkpoint-best-f1/model.bin
+2022-10-18 20:47:05.307 664:link-prediction        INFO     ********************
+2022-10-18 20:47:05.308 665:link-prediction        INFO     Best MCC:0.6143
+2022-10-18 20:47:05.308 666:link-prediction        INFO     ********************
+2022-10-18 20:47:05.308 681:link-prediction        INFO   Saving model checkpoint to ../link_prediction/java250/plm/graphcodebert_saved_models/1/ast_6/checkpoint-best-mcc/model.bin
+2022-10-18 20:47:11.104 700:link-prediction        INFO   ***** Running evaluation *****
+2022-10-18 20:47:11.104 701:link-prediction        INFO     Num examples = 25814
+2022-10-18 20:47:11.104 702:link-prediction        INFO     Batch size = 32
+2022-10-18 20:47:28.265 747:link-prediction        INFO   ***** Eval results *****
+2022-10-18 20:47:28.266 749:link-prediction        INFO     eval_acc = 0.8676
+2022-10-18 20:47:28.266 749:link-prediction        INFO     eval_f1 = 0.8769
+2022-10-18 20:47:28.266 749:link-prediction        INFO     eval_mcc = 0.7453
+2022-10-18 20:47:28.266 749:link-prediction        INFO     eval_precision = 0.8152
+2022-10-18 20:47:28.266 749:link-prediction        INFO     eval_recall = 0.9488
+2022-10-18 20:47:28.266 749:link-prediction        INFO     eval_threshold = 0.5
+2022-10-18 20:47:28.268 642:link-prediction        INFO     ********************
+2022-10-18 20:47:28.268 643:link-prediction        INFO     Best f1:0.8769
+2022-10-18 20:47:28.268 644:link-prediction        INFO     ********************
+2022-10-18 20:47:28.269 659:link-prediction        INFO   Saving model checkpoint to ../link_prediction/java250/plm/graphcodebert_saved_models/1/ast_6/checkpoint-best-f1/model.bin
+2022-10-18 20:47:28.269 664:link-prediction        INFO     ********************
+2022-10-18 20:47:28.269 665:link-prediction        INFO     Best MCC:0.7453
+2022-10-18 20:47:28.269 666:link-prediction        INFO     ********************
+2022-10-18 20:47:28.270 681:link-prediction        INFO   Saving model checkpoint to ../link_prediction/java250/plm/graphcodebert_saved_models/1/ast_6/checkpoint-best-mcc/model.bin
+2022-10-18 20:47:34.099 700:link-prediction        INFO   ***** Running evaluation *****
+2022-10-18 20:47:34.099 701:link-prediction        INFO     Num examples = 25814
+2022-10-18 20:47:34.099 702:link-prediction        INFO     Batch size = 32
+2022-10-18 20:47:51.281 747:link-prediction        INFO   ***** Eval results *****
+2022-10-18 20:47:51.282 749:link-prediction        INFO     eval_acc = 0.8958
+2022-10-18 20:47:51.282 749:link-prediction        INFO     eval_f1 = 0.8983
+2022-10-18 20:47:51.282 749:link-prediction        INFO     eval_mcc = 0.793
+2022-10-18 20:47:51.282 749:link-prediction        INFO     eval_precision = 0.8726
+2022-10-18 20:47:51.282 749:link-prediction        INFO     eval_recall = 0.9255
+2022-10-18 20:47:51.282 749:link-prediction        INFO     eval_threshold = 0.5
+2022-10-18 20:47:51.284 642:link-prediction        INFO     ********************
+2022-10-18 20:47:51.284 643:link-prediction        INFO     Best f1:0.8983
+2022-10-18 20:47:51.284 644:link-prediction        INFO     ********************
+2022-10-18 20:47:51.285 659:link-prediction        INFO   Saving model checkpoint to ../link_prediction/java250/plm/graphcodebert_saved_models/1/ast_6/checkpoint-best-f1/model.bin
+2022-10-18 20:47:51.285 664:link-prediction        INFO     ********************
+2022-10-18 20:47:51.285 665:link-prediction        INFO     Best MCC:0.793
+2022-10-18 20:47:51.285 666:link-prediction        INFO     ********************
+2022-10-18 20:47:51.286 681:link-prediction        INFO   Saving model checkpoint to ../link_prediction/java250/plm/graphcodebert_saved_models/1/ast_6/checkpoint-best-mcc/model.bin
+2022-10-18 20:47:57.121 700:link-prediction        INFO   ***** Running evaluation *****
+2022-10-18 20:47:57.121 701:link-prediction        INFO     Num examples = 25814
+2022-10-18 20:47:57.121 702:link-prediction        INFO     Batch size = 32
+2022-10-18 20:48:14.755 747:link-prediction        INFO   ***** Eval results *****
+2022-10-18 20:48:14.755 749:link-prediction        INFO     eval_acc = 0.9195
+2022-10-18 20:48:14.755 749:link-prediction        INFO     eval_f1 = 0.9206
+2022-10-18 20:48:14.756 749:link-prediction        INFO     eval_mcc = 0.8397
+2022-10-18 20:48:14.756 749:link-prediction        INFO     eval_precision = 0.9044
+2022-10-18 20:48:14.756 749:link-prediction        INFO     eval_recall = 0.9373
+2022-10-18 20:48:14.756 749:link-prediction        INFO     eval_threshold = 0.5
+2022-10-18 20:48:14.758 642:link-prediction        INFO     ********************
+2022-10-18 20:48:14.758 643:link-prediction        INFO     Best f1:0.9206
+2022-10-18 20:48:14.758 644:link-prediction        INFO     ********************
+2022-10-18 20:48:14.758 659:link-prediction        INFO   Saving model checkpoint to ../link_prediction/java250/plm/graphcodebert_saved_models/1/ast_6/checkpoint-best-f1/model.bin
+2022-10-18 20:48:14.759 664:link-prediction        INFO     ********************
+2022-10-18 20:48:14.759 665:link-prediction        INFO     Best MCC:0.8397
+2022-10-18 20:48:14.759 666:link-prediction        INFO     ********************
+2022-10-18 20:48:14.759 681:link-prediction        INFO   Saving model checkpoint to ../link_prediction/java250/plm/graphcodebert_saved_models/1/ast_6/checkpoint-best-mcc/model.bin
+2022-10-18 20:48:20.616 700:link-prediction        INFO   ***** Running evaluation *****
+2022-10-18 20:48:20.617 701:link-prediction        INFO     Num examples = 25814
+2022-10-18 20:48:20.617 702:link-prediction        INFO     Batch size = 32
+2022-10-18 20:48:38.220 747:link-prediction        INFO   ***** Eval results *****
+2022-10-18 20:48:38.220 749:link-prediction        INFO     eval_acc = 0.9176
+2022-10-18 20:48:38.220 749:link-prediction        INFO     eval_f1 = 0.9201
+2022-10-18 20:48:38.220 749:link-prediction        INFO     eval_mcc = 0.8374
+2022-10-18 20:48:38.220 749:link-prediction        INFO     eval_precision = 0.8887
+2022-10-18 20:48:38.220 749:link-prediction        INFO     eval_recall = 0.9537
+2022-10-18 20:48:38.220 749:link-prediction        INFO     eval_threshold = 0.5
+2022-10-18 20:48:43.934 700:link-prediction        INFO   ***** Running evaluation *****
+2022-10-18 20:48:43.935 701:link-prediction        INFO     Num examples = 25814
+2022-10-18 20:48:43.935 702:link-prediction        INFO     Batch size = 32
+2022-10-18 20:49:01.117 747:link-prediction        INFO   ***** Eval results *****
+2022-10-18 20:49:01.117 749:link-prediction        INFO     eval_acc = 0.9185
+2022-10-18 20:49:01.117 749:link-prediction        INFO     eval_f1 = 0.9228
+2022-10-18 20:49:01.118 749:link-prediction        INFO     eval_mcc = 0.8435
+2022-10-18 20:49:01.118 749:link-prediction        INFO     eval_precision = 0.8724
+2022-10-18 20:49:01.118 749:link-prediction        INFO     eval_recall = 0.9794
+2022-10-18 20:49:01.118 749:link-prediction        INFO     eval_threshold = 0.5
+2022-10-18 20:49:01.119 642:link-prediction        INFO     ********************
+2022-10-18 20:49:01.120 643:link-prediction        INFO     Best f1:0.9228
+2022-10-18 20:49:01.120 644:link-prediction        INFO     ********************
+2022-10-18 20:49:01.120 659:link-prediction        INFO   Saving model checkpoint to ../link_prediction/java250/plm/graphcodebert_saved_models/1/ast_6/checkpoint-best-f1/model.bin
+2022-10-18 20:49:01.120 664:link-prediction        INFO     ********************
+2022-10-18 20:49:01.121 665:link-prediction        INFO     Best MCC:0.8435
+2022-10-18 20:49:01.121 666:link-prediction        INFO     ********************
+2022-10-18 20:49:01.121 681:link-prediction        INFO   Saving model checkpoint to ../link_prediction/java250/plm/graphcodebert_saved_models/1/ast_6/checkpoint-best-mcc/model.bin
+2022-10-18 20:49:07.006 700:link-prediction        INFO   ***** Running evaluation *****
+2022-10-18 20:49:07.006 701:link-prediction        INFO     Num examples = 25814
+2022-10-18 20:49:07.007 702:link-prediction        INFO     Batch size = 32
+2022-10-18 20:49:24.208 747:link-prediction        INFO   ***** Eval results *****
+2022-10-18 20:49:24.208 749:link-prediction        INFO     eval_acc = 0.9367
+2022-10-18 20:49:24.209 749:link-prediction        INFO     eval_f1 = 0.9369
+2022-10-18 20:49:24.209 749:link-prediction        INFO     eval_mcc = 0.8735
+2022-10-18 20:49:24.209 749:link-prediction        INFO     eval_precision = 0.9297
+2022-10-18 20:49:24.209 749:link-prediction        INFO     eval_recall = 0.9441
+2022-10-18 20:49:24.209 749:link-prediction        INFO     eval_threshold = 0.5
+2022-10-18 20:49:24.211 642:link-prediction        INFO     ********************
+2022-10-18 20:49:24.211 643:link-prediction        INFO     Best f1:0.9369
+2022-10-18 20:49:24.211 644:link-prediction        INFO     ********************
+2022-10-18 20:49:24.211 659:link-prediction        INFO   Saving model checkpoint to ../link_prediction/java250/plm/graphcodebert_saved_models/1/ast_6/checkpoint-best-f1/model.bin
+2022-10-18 20:49:24.212 664:link-prediction        INFO     ********************
+2022-10-18 20:49:24.212 665:link-prediction        INFO     Best MCC:0.8735
+2022-10-18 20:49:24.212 666:link-prediction        INFO     ********************
+2022-10-18 20:49:24.212 681:link-prediction        INFO   Saving model checkpoint to ../link_prediction/java250/plm/graphcodebert_saved_models/1/ast_6/checkpoint-best-mcc/model.bin
+2022-10-18 20:49:30.055 700:link-prediction        INFO   ***** Running evaluation *****
+2022-10-18 20:49:30.056 701:link-prediction        INFO     Num examples = 25814
+2022-10-18 20:49:30.056 702:link-prediction        INFO     Batch size = 32
+2022-10-18 20:49:47.274 747:link-prediction        INFO   ***** Eval results *****
+2022-10-18 20:49:47.275 749:link-prediction        INFO     eval_acc = 0.9395
+2022-10-18 20:49:47.275 749:link-prediction        INFO     eval_f1 = 0.9397
+2022-10-18 20:49:47.275 749:link-prediction        INFO     eval_mcc = 0.8791
+2022-10-18 20:49:47.275 749:link-prediction        INFO     eval_precision = 0.9305
+2022-10-18 20:49:47.275 749:link-prediction        INFO     eval_recall = 0.9491
+2022-10-18 20:49:47.275 749:link-prediction        INFO     eval_threshold = 0.5
+2022-10-18 20:49:47.277 642:link-prediction        INFO     ********************
+2022-10-18 20:49:47.277 643:link-prediction        INFO     Best f1:0.9397
+2022-10-18 20:49:47.277 644:link-prediction        INFO     ********************
+2022-10-18 20:49:47.278 659:link-prediction        INFO   Saving model checkpoint to ../link_prediction/java250/plm/graphcodebert_saved_models/1/ast_6/checkpoint-best-f1/model.bin
+2022-10-18 20:49:47.278 664:link-prediction        INFO     ********************
+2022-10-18 20:49:47.278 665:link-prediction        INFO     Best MCC:0.8791
+2022-10-18 20:49:47.278 666:link-prediction        INFO     ********************
+2022-10-18 20:49:47.279 681:link-prediction        INFO   Saving model checkpoint to ../link_prediction/java250/plm/graphcodebert_saved_models/1/ast_6/checkpoint-best-mcc/model.bin
+2022-10-18 20:49:53.075 700:link-prediction        INFO   ***** Running evaluation *****
+2022-10-18 20:49:53.075 701:link-prediction        INFO     Num examples = 25814
+2022-10-18 20:49:53.075 702:link-prediction        INFO     Batch size = 32
+2022-10-18 20:50:10.366 747:link-prediction        INFO   ***** Eval results *****
+2022-10-18 20:50:10.366 749:link-prediction        INFO     eval_acc = 0.9409
+2022-10-18 20:50:10.366 749:link-prediction        INFO     eval_f1 = 0.9416
+2022-10-18 20:50:10.366 749:link-prediction        INFO     eval_mcc = 0.8823
+2022-10-18 20:50:10.366 749:link-prediction        INFO     eval_precision = 0.9256
+2022-10-18 20:50:10.366 749:link-prediction        INFO     eval_recall = 0.9582
+2022-10-18 20:50:10.366 749:link-prediction        INFO     eval_threshold = 0.5
+2022-10-18 20:50:10.368 642:link-prediction        INFO     ********************
+2022-10-18 20:50:10.368 643:link-prediction        INFO     Best f1:0.9416
+2022-10-18 20:50:10.368 644:link-prediction        INFO     ********************
+2022-10-18 20:50:10.375 659:link-prediction        INFO   Saving model checkpoint to ../link_prediction/java250/plm/graphcodebert_saved_models/1/ast_6/checkpoint-best-f1/model.bin
+2022-10-18 20:50:10.375 664:link-prediction        INFO     ********************
+2022-10-18 20:50:10.375 665:link-prediction        INFO     Best MCC:0.8823
+2022-10-18 20:50:10.375 666:link-prediction        INFO     ********************
+2022-10-18 20:50:10.376 681:link-prediction        INFO   Saving model checkpoint to ../link_prediction/java250/plm/graphcodebert_saved_models/1/ast_6/checkpoint-best-mcc/model.bin
+2022-10-18 20:50:16.171 700:link-prediction        INFO   ***** Running evaluation *****
+2022-10-18 20:50:16.171 701:link-prediction        INFO     Num examples = 25814
+2022-10-18 20:50:16.171 702:link-prediction        INFO     Batch size = 32
+2022-10-18 20:50:33.387 747:link-prediction        INFO   ***** Eval results *****
+2022-10-18 20:50:33.387 749:link-prediction        INFO     eval_acc = 0.9406
+2022-10-18 20:50:33.388 749:link-prediction        INFO     eval_f1 = 0.9421
+2022-10-18 20:50:33.388 749:link-prediction        INFO     eval_mcc = 0.8829
+2022-10-18 20:50:33.388 749:link-prediction        INFO     eval_precision = 0.9144
+2022-10-18 20:50:33.388 749:link-prediction        INFO     eval_recall = 0.9714
+2022-10-18 20:50:33.388 749:link-prediction        INFO     eval_threshold = 0.5
+2022-10-18 20:50:33.390 642:link-prediction        INFO     ********************
+2022-10-18 20:50:33.390 643:link-prediction        INFO     Best f1:0.9421
+2022-10-18 20:50:33.390 644:link-prediction        INFO     ********************
+2022-10-18 20:50:33.391 659:link-prediction        INFO   Saving model checkpoint to ../link_prediction/java250/plm/graphcodebert_saved_models/1/ast_6/checkpoint-best-f1/model.bin
+2022-10-18 20:50:33.391 664:link-prediction        INFO     ********************
+2022-10-18 20:50:33.391 665:link-prediction        INFO     Best MCC:0.8829
+2022-10-18 20:50:33.391 666:link-prediction        INFO     ********************
+2022-10-18 20:50:33.391 681:link-prediction        INFO   Saving model checkpoint to ../link_prediction/java250/plm/graphcodebert_saved_models/1/ast_6/checkpoint-best-mcc/model.bin
+2022-10-18 20:50:39.199 700:link-prediction        INFO   ***** Running evaluation *****
+2022-10-18 20:50:39.200 701:link-prediction        INFO     Num examples = 25814
+2022-10-18 20:50:39.200 702:link-prediction        INFO     Batch size = 32
+2022-10-18 20:50:56.487 747:link-prediction        INFO   ***** Eval results *****
+2022-10-18 20:50:56.488 749:link-prediction        INFO     eval_acc = 0.9468
+2022-10-18 20:50:56.488 749:link-prediction        INFO     eval_f1 = 0.9469
+2022-10-18 20:50:56.488 749:link-prediction        INFO     eval_mcc = 0.8937
+2022-10-18 20:50:56.488 749:link-prediction        INFO     eval_precision = 0.9403
+2022-10-18 20:50:56.488 749:link-prediction        INFO     eval_recall = 0.9537
+2022-10-18 20:50:56.488 749:link-prediction        INFO     eval_threshold = 0.5
+2022-10-18 20:50:56.490 642:link-prediction        INFO     ********************
+2022-10-18 20:50:56.490 643:link-prediction        INFO     Best f1:0.9469
+2022-10-18 20:50:56.490 644:link-prediction        INFO     ********************
+2022-10-18 20:50:56.491 659:link-prediction        INFO   Saving model checkpoint to ../link_prediction/java250/plm/graphcodebert_saved_models/1/ast_6/checkpoint-best-f1/model.bin
+2022-10-18 20:50:56.491 664:link-prediction        INFO     ********************
+2022-10-18 20:50:56.491 665:link-prediction        INFO     Best MCC:0.8937
+2022-10-18 20:50:56.491 666:link-prediction        INFO     ********************
+2022-10-18 20:50:56.491 681:link-prediction        INFO   Saving model checkpoint to ../link_prediction/java250/plm/graphcodebert_saved_models/1/ast_6/checkpoint-best-mcc/model.bin
+2022-10-18 20:51:02.369 700:link-prediction        INFO   ***** Running evaluation *****
+2022-10-18 20:51:02.369 701:link-prediction        INFO     Num examples = 25814
+2022-10-18 20:51:02.369 702:link-prediction        INFO     Batch size = 32
+2022-10-18 20:51:20.051 747:link-prediction        INFO   ***** Eval results *****
+2022-10-18 20:51:20.052 749:link-prediction        INFO     eval_acc = 0.9468
+2022-10-18 20:51:20.052 749:link-prediction        INFO     eval_f1 = 0.9478
+2022-10-18 20:51:20.052 749:link-prediction        INFO     eval_mcc = 0.8947
+2022-10-18 20:51:20.052 749:link-prediction        INFO     eval_precision = 0.9257
+2022-10-18 20:51:20.052 749:link-prediction        INFO     eval_recall = 0.9709
+2022-10-18 20:51:20.052 749:link-prediction        INFO     eval_threshold = 0.5
+2022-10-18 20:51:20.054 642:link-prediction        INFO     ********************
+2022-10-18 20:51:20.054 643:link-prediction        INFO     Best f1:0.9478
+2022-10-18 20:51:20.054 644:link-prediction        INFO     ********************
+2022-10-18 20:51:20.055 659:link-prediction        INFO   Saving model checkpoint to ../link_prediction/java250/plm/graphcodebert_saved_models/1/ast_6/checkpoint-best-f1/model.bin
+2022-10-18 20:51:20.055 664:link-prediction        INFO     ********************
+2022-10-18 20:51:20.055 665:link-prediction        INFO     Best MCC:0.8947
+2022-10-18 20:51:20.055 666:link-prediction        INFO     ********************
+2022-10-18 20:51:20.056 681:link-prediction        INFO   Saving model checkpoint to ../link_prediction/java250/plm/graphcodebert_saved_models/1/ast_6/checkpoint-best-mcc/model.bin
+2022-10-18 20:51:25.867 700:link-prediction        INFO   ***** Running evaluation *****
+2022-10-18 20:51:25.867 701:link-prediction        INFO     Num examples = 25814
+2022-10-18 20:51:25.868 702:link-prediction        INFO     Batch size = 32
+2022-10-18 20:51:43.074 747:link-prediction        INFO   ***** Eval results *****
+2022-10-18 20:51:43.074 749:link-prediction        INFO     eval_acc = 0.9377
+2022-10-18 20:51:43.075 749:link-prediction        INFO     eval_f1 = 0.9399
+2022-10-18 20:51:43.075 749:link-prediction        INFO     eval_mcc = 0.8784
+2022-10-18 20:51:43.075 749:link-prediction        INFO     eval_precision = 0.9044
+2022-10-18 20:51:43.075 749:link-prediction        INFO     eval_recall = 0.9783
+2022-10-18 20:51:43.075 749:link-prediction        INFO     eval_threshold = 0.5
+2022-10-18 20:51:48.971 700:link-prediction        INFO   ***** Running evaluation *****
+2022-10-18 20:51:48.971 701:link-prediction        INFO     Num examples = 25814
+2022-10-18 20:51:48.972 702:link-prediction        INFO     Batch size = 32
+2022-10-18 20:52:06.632 747:link-prediction        INFO   ***** Eval results *****
+2022-10-18 20:52:06.632 749:link-prediction        INFO     eval_acc = 0.9458
+2022-10-18 20:52:06.632 749:link-prediction        INFO     eval_f1 = 0.947
+2022-10-18 20:52:06.632 749:link-prediction        INFO     eval_mcc = 0.8929
+2022-10-18 20:52:06.632 749:link-prediction        INFO     eval_precision = 0.9219
+2022-10-18 20:52:06.632 749:link-prediction        INFO     eval_recall = 0.9734
+2022-10-18 20:52:06.632 749:link-prediction        INFO     eval_threshold = 0.5
+2022-10-18 20:52:12.503 700:link-prediction        INFO   ***** Running evaluation *****
+2022-10-18 20:52:12.503 701:link-prediction        INFO     Num examples = 25814
+2022-10-18 20:52:12.503 702:link-prediction        INFO     Batch size = 32
+2022-10-18 20:52:29.835 747:link-prediction        INFO   ***** Eval results *****
+2022-10-18 20:52:29.835 749:link-prediction        INFO     eval_acc = 0.951
+2022-10-18 20:52:29.836 749:link-prediction        INFO     eval_f1 = 0.9517
+2022-10-18 20:52:29.836 749:link-prediction        INFO     eval_mcc = 0.9027
+2022-10-18 20:52:29.836 749:link-prediction        INFO     eval_precision = 0.9322
+2022-10-18 20:52:29.836 749:link-prediction        INFO     eval_recall = 0.972
+2022-10-18 20:52:29.836 749:link-prediction        INFO     eval_threshold = 0.5
+2022-10-18 20:52:29.838 642:link-prediction        INFO     ********************
+2022-10-18 20:52:29.838 643:link-prediction        INFO     Best f1:0.9517
+2022-10-18 20:52:29.838 644:link-prediction        INFO     ********************
+2022-10-18 20:52:29.839 659:link-prediction        INFO   Saving model checkpoint to ../link_prediction/java250/plm/graphcodebert_saved_models/1/ast_6/checkpoint-best-f1/model.bin
+2022-10-18 20:52:29.839 664:link-prediction        INFO     ********************
+2022-10-18 20:52:29.839 665:link-prediction        INFO     Best MCC:0.9027
+2022-10-18 20:52:29.839 666:link-prediction        INFO     ********************
+2022-10-18 20:52:29.839 681:link-prediction        INFO   Saving model checkpoint to ../link_prediction/java250/plm/graphcodebert_saved_models/1/ast_6/checkpoint-best-mcc/model.bin
+2022-10-18 20:52:35.768 700:link-prediction        INFO   ***** Running evaluation *****
+2022-10-18 20:52:35.769 701:link-prediction        INFO     Num examples = 25814
+2022-10-18 20:52:35.769 702:link-prediction        INFO     Batch size = 32
+2022-10-18 20:52:53.515 747:link-prediction        INFO   ***** Eval results *****
+2022-10-18 20:52:53.515 749:link-prediction        INFO     eval_acc = 0.9518
+2022-10-18 20:52:53.515 749:link-prediction        INFO     eval_f1 = 0.9529
+2022-10-18 20:52:53.515 749:link-prediction        INFO     eval_mcc = 0.905
+2022-10-18 20:52:53.516 749:link-prediction        INFO     eval_precision = 0.9286
+2022-10-18 20:52:53.516 749:link-prediction        INFO     eval_recall = 0.9784
+2022-10-18 20:52:53.516 749:link-prediction        INFO     eval_threshold = 0.5
+2022-10-18 20:52:53.517 642:link-prediction        INFO     ********************
+2022-10-18 20:52:53.518 643:link-prediction        INFO     Best f1:0.9529
+2022-10-18 20:52:53.518 644:link-prediction        INFO     ********************
+2022-10-18 20:52:53.518 659:link-prediction        INFO   Saving model checkpoint to ../link_prediction/java250/plm/graphcodebert_saved_models/1/ast_6/checkpoint-best-f1/model.bin
+2022-10-18 20:52:53.519 664:link-prediction        INFO     ********************
+2022-10-18 20:52:53.519 665:link-prediction        INFO     Best MCC:0.905
+2022-10-18 20:52:53.519 666:link-prediction        INFO     ********************
+2022-10-18 20:52:53.519 681:link-prediction        INFO   Saving model checkpoint to ../link_prediction/java250/plm/graphcodebert_saved_models/1/ast_6/checkpoint-best-mcc/model.bin
+2022-10-18 20:52:59.357 700:link-prediction        INFO   ***** Running evaluation *****
+2022-10-18 20:52:59.357 701:link-prediction        INFO     Num examples = 25814
+2022-10-18 20:52:59.357 702:link-prediction        INFO     Batch size = 32
+2022-10-18 20:53:17.043 747:link-prediction        INFO   ***** Eval results *****
+2022-10-18 20:53:17.043 749:link-prediction        INFO     eval_acc = 0.9534
+2022-10-18 20:53:17.043 749:link-prediction        INFO     eval_f1 = 0.9543
+2022-10-18 20:53:17.044 749:link-prediction        INFO     eval_mcc = 0.908
+2022-10-18 20:53:17.044 749:link-prediction        INFO     eval_precision = 0.9321
+2022-10-18 20:53:17.044 749:link-prediction        INFO     eval_recall = 0.9776
+2022-10-18 20:53:17.044 749:link-prediction        INFO     eval_threshold = 0.5
+2022-10-18 20:53:17.046 642:link-prediction        INFO     ********************
+2022-10-18 20:53:17.046 643:link-prediction        INFO     Best f1:0.9543
+2022-10-18 20:53:17.046 644:link-prediction        INFO     ********************
+2022-10-18 20:53:17.047 659:link-prediction        INFO   Saving model checkpoint to ../link_prediction/java250/plm/graphcodebert_saved_models/1/ast_6/checkpoint-best-f1/model.bin
+2022-10-18 20:53:17.047 664:link-prediction        INFO     ********************
+2022-10-18 20:53:17.047 665:link-prediction        INFO     Best MCC:0.908
+2022-10-18 20:53:17.047 666:link-prediction        INFO     ********************
+2022-10-18 20:53:17.048 681:link-prediction        INFO   Saving model checkpoint to ../link_prediction/java250/plm/graphcodebert_saved_models/1/ast_6/checkpoint-best-mcc/model.bin
+2022-10-18 20:53:23.002 700:link-prediction        INFO   ***** Running evaluation *****
+2022-10-18 20:53:23.002 701:link-prediction        INFO     Num examples = 25814
+2022-10-18 20:53:23.002 702:link-prediction        INFO     Batch size = 32
+2022-10-18 20:53:40.269 747:link-prediction        INFO   ***** Eval results *****
+2022-10-18 20:53:40.269 749:link-prediction        INFO     eval_acc = 0.9534
+2022-10-18 20:53:40.269 749:link-prediction        INFO     eval_f1 = 0.9542
+2022-10-18 20:53:40.269 749:link-prediction        INFO     eval_mcc = 0.9078
+2022-10-18 20:53:40.269 749:link-prediction        INFO     eval_precision = 0.9317
+2022-10-18 20:53:40.270 749:link-prediction        INFO     eval_recall = 0.978
+2022-10-18 20:53:40.270 749:link-prediction        INFO     eval_threshold = 0.5
+2022-10-18 20:53:46.238 700:link-prediction        INFO   ***** Running evaluation *****
+2022-10-18 20:53:46.238 701:link-prediction        INFO     Num examples = 25814
+2022-10-18 20:53:46.238 702:link-prediction        INFO     Batch size = 32
+2022-10-18 20:54:03.536 747:link-prediction        INFO   ***** Eval results *****
+2022-10-18 20:54:03.537 749:link-prediction        INFO     eval_acc = 0.9514
+2022-10-18 20:54:03.537 749:link-prediction        INFO     eval_f1 = 0.9523
+2022-10-18 20:54:03.537 749:link-prediction        INFO     eval_mcc = 0.9038
+2022-10-18 20:54:03.537 749:link-prediction        INFO     eval_precision = 0.9307
+2022-10-18 20:54:03.537 749:link-prediction        INFO     eval_recall = 0.9748
+2022-10-18 20:54:03.537 749:link-prediction        INFO     eval_threshold = 0.5
+2022-10-18 20:54:09.392 700:link-prediction        INFO   ***** Running evaluation *****
+2022-10-18 20:54:09.393 701:link-prediction        INFO     Num examples = 25814
+2022-10-18 20:54:09.393 702:link-prediction        INFO     Batch size = 32
+2022-10-18 20:54:26.752 747:link-prediction        INFO   ***** Eval results *****
+2022-10-18 20:54:26.752 749:link-prediction        INFO     eval_acc = 0.9514
+2022-10-18 20:54:26.752 749:link-prediction        INFO     eval_f1 = 0.9524
+2022-10-18 20:54:26.752 749:link-prediction        INFO     eval_mcc = 0.904
+2022-10-18 20:54:26.752 749:link-prediction        INFO     eval_precision = 0.9284
+2022-10-18 20:54:26.752 749:link-prediction        INFO     eval_recall = 0.9776
+2022-10-18 20:54:26.752 749:link-prediction        INFO     eval_threshold = 0.5
+2022-10-18 20:54:26.917 769:link-prediction        INFO   ***** Running Test *****
+2022-10-18 20:54:26.917 770:link-prediction        INFO     Num examples = 25558
+2022-10-18 20:54:26.917 771:link-prediction        INFO     Batch size = 32
+2022-10-18 20:54:44.426 812:link-prediction        INFO   ***** Test results *****
+2022-10-18 20:54:44.427 814:link-prediction        INFO     eval_acc = 0.9539
+2022-10-18 20:54:44.427 814:link-prediction        INFO     eval_f1 = 0.9549
+2022-10-18 20:54:44.427 814:link-prediction        INFO     eval_mcc = 0.909
+2022-10-18 20:54:44.427 814:link-prediction        INFO     eval_precision = 0.9321
+2022-10-18 20:54:44.427 814:link-prediction        INFO     eval_recall = 0.9788
+2022-10-18 20:54:44.427 814:link-prediction        INFO     eval_threshold = 0.5
